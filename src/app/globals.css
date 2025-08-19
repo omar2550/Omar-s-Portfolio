@@ -1,26 +1,102 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ✅ Default Light Theme */
+@theme {
+  --color-bg: #f9fafb;
+  --color-gradient: linear-gradient(135deg, #e7ebee, #e8eef3);
+
+  /* 🎨 Primary & Accent Colors */
+  --color-primary: #2563eb;
+  --color-primary-light: #3b82f6;
+  --color-accent: #ec4899;
+  --color-accent-light: #f472b6;
+
+  /* 🖋 Text Colors */
+  --color-text: #4b5563;
+  --color-text-secondary: #111827;
+
+  /* ✨ Text Gradient */
+  --color-heading-gradient: linear-gradient(to right, #2563eb, #38bdf8);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ✅ Define dark variant */
+@custom-variant dark (&:where(.dark, .dark *));
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ✅ Dark Theme Overrides */
+@layer theme {
+  @variant dark {
+    --color-bg: #0f172a;
+    --color-gradient: linear-gradient(135deg, #0f172a, #1e293b);
+
+    /* 🎨 Primary & Accent Colors */
+    --color-primary: #38bdf8;
+    --color-primary-dark: #0ea5e9;
+    --color-accent: #f472b6;
+    --color-accent-dark: #ec4899;
+
+    /* 🖋 Text Colors */
+    --color-text: #f9fafb;
+    --color-text-secondary: #cbd5e1;
+
+    /* ✨ Text Gradient */
+    --color-heading-gradient: linear-gradient(to right, #38bdf8, #818cf8);
   }
 }
 
+/* 📌 Utility class for gradient text */
+.text-gradient {
+  background: var(--color-heading-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Added for better visibility and style */
+  text-shadow: 2px 2px 8px rgba(37, 99, 235, 0.3);
+  transition: text-shadow 0.3s ease;
+}
+
+.bg-gradient {
+  background: var(--color-gradient);
+}
+
+/* Dark variant shadow */
+@layer theme {
+  :root {
+    @variant dark {
+      .text-gradient {
+        text-shadow: 2px 2px 8px rgba(96, 165, 250, 0.5);
+      }
+    }
+  }
+}
+
+/* Fonts for body */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Poppins", sans-serif;
+  transition: font-family 0.3s ease;
+}
+
+@layer theme {
+  :root {
+    @variant dark {
+      body {
+        font-family: "Cairo", sans-serif;
+      }
+    }
+  }
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+.padding {
+  @apply sm:px-16 px-6 sm:py-16 py-10;
+}
+
+.paddingX {
+  @apply sm:px-16 px-6;
+}
+
+.paddingY {
+  @apply sm:py-16 py-6;
 }
