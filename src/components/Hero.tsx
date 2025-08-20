@@ -61,7 +61,7 @@ const Hero = () => {
             </a>
           </div>
         </motion.div>
-        <div className="w-full h-[200px] md:h-[300px]">
+        <div className="hidden sm:block w-full h-[200px] md:h-[300px]">
           <Webdev />
         </div>
       </div>

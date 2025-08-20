@@ -5,7 +5,12 @@ import { textVariant } from "@/utils/motion";
 const Header = ({ text }: { text: string }) => {
   return (
     <>
-      <motion.div variants={textVariant()}>
+      <motion.div
+        variants={textVariant()}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+      >
         <h1 className="text-gradient text-3xl sm:text-[2.5rem] md:text-[4rem] text-center font-black uppercase">
           {text}
         </h1>
