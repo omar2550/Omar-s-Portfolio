@@ -9,7 +9,7 @@ const Header = ({ text }: { text: string }) => {
         variants={textVariant()}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.25 }}
+        viewport={{ once: true, amount: 0.1 }}
       >
         <h1 className="text-gradient text-3xl sm:text-[2.5rem] md:text-[4rem] text-center font-black uppercase">
           {text}
