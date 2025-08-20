@@ -26,7 +26,13 @@ const About = () => {
           contribute to impactful projects as I grow in my development journey.
         </motion.p>
         <motion.div variants={fadeIn("left", "tween", 0.1, 1)}>
-          <Image src={developer} width={300} height={300} alt="developer" />
+          <Image
+            src={developer}
+            width={300}
+            height={300}
+            alt="developer"
+            style={{ height: "auto", width: "100%" }}
+          />
         </motion.div>
       </div>
     </section>

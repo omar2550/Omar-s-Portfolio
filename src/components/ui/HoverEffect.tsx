@@ -16,7 +16,7 @@ export const HoverEffect = ({
     link: string;
     liveLink: string;
     image: StaticImageData;
-    tech: React.ComponentType[];
+    tech: React.ComponentType<{ size?: number; color?: string }>[];
   }[];
   className?: string;
 }) => {
@@ -73,14 +73,17 @@ export const HoverEffect = ({
               </div>
               <div className="flex justify-between flex-wrap sm:flex-nowrap gap-y-3 items-center my-3">
                 <Cardtechs techs={item.tech} />
-                <a
-                  href={item.liveLink}
-                  target="_blank"
-                  className="flex items-center gap-1.5 text-sm text-text-secondary"
+                <button
+                  className="flex items-center gap-1.5 text-sm text-text-secondary bg-transparent border-none outline-none"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    window.open(item.liveLink, "_blank", "noopener,noreferrer");
+                  }}
                 >
                   <p className="line-clamp-1">Check Live Server</p>
                   <HiExternalLink />
-                </a>
+                </button>
               </div>
             </div>
           </Card>
