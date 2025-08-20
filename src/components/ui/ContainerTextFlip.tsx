@@ -58,7 +58,10 @@ export function ContainerTextFlip({
     >
       <motion.div
         transition={{ duration: animationDuration / 1000, ease: "easeInOut" }}
-        className={cn("inline-block", textClassName)}
+        className={cn(
+          "inline-block antialiased [text-rendering:geometricPrecision] [transform:translateZ(0)]",
+          textClassName
+        )}
         ref={textRef}
         layoutId={`word-div-${words[currentWordIndex]}-${id}`}
       >
