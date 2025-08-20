@@ -9,7 +9,10 @@ import { FaLocationArrow } from "react-icons/fa6";
 
 const Hero = () => {
   return (
-    <section className="relative paddingX h-screen flex w-full items-center justify-center bg-bg">
+    <section
+      id="home"
+      className="relative paddingX h-screen flex w-full items-center justify-center bg-bg"
+    >
       <div
         className="absolute top-0 left-0 flex h-[50rem] w-full bg-bg
          items-center justify-center"
@@ -36,14 +39,17 @@ const Hero = () => {
           viewport={{ once: true, amount: 0.25 }}
         >
           <div>
-            <h1 className="text-gradient text-3xl sm:text-[2.5rem] md:text-[4rem] font-black">
+            <h1 className="block sm:hidden text-gradient text-3xl font-black">
+              Turning Your Ideas <br /> Into Reality
+            </h1>
+            <h1 className="hidden sm:block text-gradient text-3xl sm:text-[2.5rem] md:text-[4rem] font-black">
               You Dream, <br />I{" "}
               <ContainerTextFlip textClassName="text-primary text-3xl sm:text-[2.5rem] md:text-[4rem]" />
             </h1>
             <p className="text-sm sm:text-[18px] md:text-xl text-primary mt-2 sm:w-sm md:w-md">
-              Hi, I’m Omar
-              <br />A Front-End Developer with a passion for creating beautiful
-              and functional user interfaces.
+              Hi, I’m Omar.
+              <br />A Front-End Developer passionate about crafting beautiful,
+              responsive, and user-friendly interfaces.
             </p>
           </div>
           <div className="flex justify-center sm:justify-start items-center mt-7 gap-5 flex-col sm:flex-row">

@@ -27,6 +27,7 @@ const Navbar = ({
   const [themeMenu, setThemeMenu] = useState(false);
 
   const themeRef = useRef<HTMLDivElement>(null);
+  const themeHamburRef = useRef<HTMLDivElement>(null);
 
   const applyTheme = (newTheme: string) => {
     if (newTheme === "system") {
@@ -119,7 +120,7 @@ const Navbar = ({
           className
         )}
       >
-        <Link href="#">
+        <Link href="#home">
           <h1 className="text-2xl sm:text-3xl md:text-4xl text-gradient">
             OMAR
           </h1>
@@ -184,7 +185,9 @@ const Navbar = ({
             </Animate>
           </div>
         </div>
-        <HamburgerButton>
+        <HamburgerButton
+          exceptionRefs={[themeHamburRef as React.RefObject<HTMLElement>]}
+        >
           <div className="flex justify-start flex-col space-y-4 p-4 bg-gradient shadow-xl absolute top-10 right-0">
             {navItems.map((navItem, idx) => (
               <a
@@ -197,7 +200,7 @@ const Navbar = ({
                 <span className="text-sm">{navItem.name}</span>
               </a>
             ))}
-            <div className="text-sm relative" ref={themeRef}>
+            <div className="text-sm relative" ref={themeHamburRef}>
               <button
                 className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light cursor-pointer border-none outline-none"
                 onClick={() => setThemeMenu(!themeMenu)}
