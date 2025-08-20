@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "motion/react";
 import Image, { StaticImageData } from "next/image";
 import { HiExternalLink } from "react-icons/hi";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export const HoverEffect = ({
   items,
@@ -21,6 +21,15 @@ export const HoverEffect = ({
   className?: string;
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    handleResize(); // run once on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div
@@ -39,7 +48,7 @@ export const HoverEffect = ({
           onMouseLeave={() => setHoveredIndex(null)}
         >
           <AnimatePresence>
-            {hoveredIndex === idx && (
+            {(hoveredIndex === idx || isMobile) && (
               <motion.span
                 className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-slate-800/[0.8] block  rounded-3xl"
                 layoutId="hoverBackground"

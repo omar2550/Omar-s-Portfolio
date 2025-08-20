@@ -69,4 +69,7 @@ const WebdevCanvas = () => {
   );
 };
 
+// to add the module in cash
+useGLTF.preload("/webdev/scene.gltf");
+
 export default WebdevCanvas;

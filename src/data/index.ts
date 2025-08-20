@@ -18,6 +18,7 @@ import {
   vilaAgency,
   specialDesign,
   dashboard,
+  _3dportfolio,
 } from '@/assets'
 
 export interface Technology {
@@ -59,7 +60,7 @@ export const projects = [
       "An interactive 3D portfolio website with smooth animations and optimized performance. Built using Three.js and Framer Motion, which helped me strengthen my skills in React, Next.js, TypeScript, and Tailwind CSS.",
     link: "https://github.com/omar2550/3D-Portfolio",
     liveLink: "https://3d-portfolio-2550.netlify.app/",
-    image: portfolio,
+    image: _3dportfolio,
     tech: [TbBrandNextjs, RiTailwindCssFill, BiLogoTypescript]
   },
   {

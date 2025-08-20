@@ -9,13 +9,10 @@ import {
   useTexture,
 } from "@react-three/drei";
 import Loader from "../Loader";
-import { StaticImageData } from "next/image";
 
-const Ball = ({ imgUrl }: { imgUrl: StaticImageData }) => {
-  const [decal] = useTexture([imgUrl.src]);
+const Ball = ({ imgUrl }: { imgUrl: string }) => {
+  const [decal] = useTexture([imgUrl]);
 
-  console.log(document.documentElement);
-  console.log(decal);
   return (
     <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
       <ambientLight intensity={0.3} />
@@ -38,7 +35,7 @@ const Ball = ({ imgUrl }: { imgUrl: StaticImageData }) => {
   );
 };
 
-const BallCanvas = ({ icon }: { icon: StaticImageData }) => {
+const BallCanvas = ({ icon }: { icon: string }) => {
   return (
     <Canvas frameloop="always" gl={{ preserveDrawingBuffer: true }}>
       <Suspense fallback={<Loader />}>

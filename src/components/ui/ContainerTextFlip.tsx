@@ -54,6 +54,15 @@ export function ContainerTextFlip({
     return () => clearInterval(intervalId);
   }, [words, interval]);
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    handleResize(); // run once on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <motion.div
       layout
@@ -81,7 +90,7 @@ export function ContainerTextFlip({
               key={index}
               initial={{
                 opacity: 0,
-                filter: "blur(10px)",
+                filter: `blur(${isMobile ? "3px" : "10px"})`,
               }}
               animate={{
                 opacity: 1,

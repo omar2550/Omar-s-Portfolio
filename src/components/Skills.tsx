@@ -16,7 +16,7 @@ const Skills = () => {
       >
         {technologies.map((tech) => (
           <div key={tech.name} className="w-28 h-28">
-            <BallCanvas icon={tech.icon} />
+            <BallCanvas icon={tech.icon.src} />
           </div>
         ))}
       </motion.div>
