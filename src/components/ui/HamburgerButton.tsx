@@ -1,28 +1,32 @@
 "use client";
 
-import { ReactNode, useState, useRef, useEffect } from "react";
+import {
+  ReactNode,
+  useState,
+  // useRef, useEffect
+} from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function HamburgerButton({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
 
-  const openRef = useRef<HTMLButtonElement>(null);
+  // const openRef = useRef<HTMLButtonElement>(null);
 
-  useEffect(() => {
-    const handleToggle = (e: MouseEvent | TouchEvent | PointerEvent) => {
-      if (openRef.current && !openRef.current.contains(e.target as Node))
-        setOpen(false);
-    };
+  // useEffect(() => {
+  //   const handleToggle = (e: MouseEvent | TouchEvent | PointerEvent) => {
+  //     if (openRef.current && !openRef.current.contains(e.target as Node))
+  //       setOpen(false);
+  //   };
 
-    document.addEventListener("pointerdown", handleToggle);
+  //   document.addEventListener("pointerdown", handleToggle);
 
-    return () => document.removeEventListener("pointerdown", handleToggle);
-  }, []);
+  //   return () => document.removeEventListener("pointerdown", handleToggle);
+  // }, []);
 
   return (
     <div className="sm:hidden relative">
       <button
-        ref={openRef}
+        // ref={openRef}
         onClick={() => setOpen((prev) => !prev)}
         className="relative w-10 h-10 flex items-center justify-center cursor-pointer"
         aria-haspopup="true"
