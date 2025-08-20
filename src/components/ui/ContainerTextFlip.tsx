@@ -79,11 +79,9 @@ export function ContainerTextFlip({
               key={index}
               initial={{
                 opacity: 0,
-                filter: isMobile ? "blur(0px)" : "blur(10px)", // initial blur based on device
               }}
               animate={{
                 opacity: 1,
-                filter: "blur(0px)", // final state
               }}
               transition={{
                 delay: index * 0.02,
