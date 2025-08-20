@@ -24,12 +24,13 @@ export function ContainerTextFlip({
   const [width, setWidth] = useState(100);
   const textRef = React.useRef<HTMLDivElement>(null);
 
-  // isMobile starts as null to determine screen size before rendering
-  const [isMobile, setIsMobile] = useState<boolean | null>(null);
+  // Set isMobile default to a real boolean to avoid flicker
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" ? window.innerWidth <= 768 : true
+  );
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    handleResize(); // run once on mount
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -53,9 +54,6 @@ export function ContainerTextFlip({
     }, interval);
     return () => clearInterval(intervalId);
   }, [words, interval]);
-
-  // If isMobile is still null, don't render yet to ensure initial blur is correct
-  if (isMobile === null) return null;
 
   return (
     <motion.div
