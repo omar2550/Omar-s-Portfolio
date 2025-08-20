@@ -1,20 +1,14 @@
 "use client";
 
 import React, { useState, useEffect, useId } from "react";
-
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export interface ContainerTextFlipProps {
-  /** Array of words to cycle through in the animation */
   words?: string[];
-  /** Time in milliseconds between word transitions */
   interval?: number;
-  /** Additional CSS classes to apply to the container */
   className?: string;
-  /** Additional CSS classes to apply to the text */
   textClassName?: string;
-  /** Duration of the transition animation in milliseconds */
   animationDuration?: number;
 }
 
@@ -28,32 +22,9 @@ export function ContainerTextFlip({
   const id = useId();
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [width, setWidth] = useState(100);
-  const textRef = React.useRef(null);
+  const textRef = React.useRef<HTMLDivElement>(null);
 
-  const updateWidthForWord = () => {
-    if (textRef.current) {
-      // Add some padding to the text width (30px on each side)
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      const textWidth = textRef.current.scrollWidth + 30;
-      setWidth(textWidth);
-    }
-  };
-
-  useEffect(() => {
-    // Update width whenever the word changes
-    updateWidthForWord();
-  }, [currentWordIndex]);
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
-      // Width will be updated in the effect that depends on currentWordIndex
-    }, interval);
-
-    return () => clearInterval(intervalId);
-  }, [words, interval]);
-
+  // isMobile starts as null to determine screen size before rendering
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -63,6 +34,27 @@ export function ContainerTextFlip({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Update the width based on the current word
+  const updateWidthForWord = () => {
+    if (textRef.current) {
+      const textWidth = textRef.current.scrollWidth + 30; // add padding
+      setWidth(textWidth);
+    }
+  };
+
+  useEffect(() => {
+    updateWidthForWord();
+  }, [currentWordIndex]);
+
+  // Cycle through words at a set interval
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentWordIndex((prev) => (prev + 1) % words.length);
+    }, interval);
+    return () => clearInterval(intervalId);
+  }, [words, interval]);
+
+  // If isMobile is still null, don't render yet to ensure initial blur is correct
   if (isMobile === null) return null;
 
   return (
@@ -78,10 +70,7 @@ export function ContainerTextFlip({
       key={words[currentWordIndex]}
     >
       <motion.div
-        transition={{
-          duration: animationDuration / 1000,
-          ease: "easeInOut",
-        }}
+        transition={{ duration: animationDuration / 1000, ease: "easeInOut" }}
         className={cn("inline-block", textClassName)}
         ref={textRef}
         layoutId={`word-div-${words[currentWordIndex]}-${id}`}
@@ -92,11 +81,11 @@ export function ContainerTextFlip({
               key={index}
               initial={{
                 opacity: 0,
-                filter: isMobile ? "blur(0px)" : "blur(10px)",
+                filter: isMobile ? "blur(0px)" : "blur(10px)", // initial blur based on device
               }}
               animate={{
                 opacity: 1,
-                filter: "blur(0px)",
+                filter: "blur(0px)", // final state
               }}
               transition={{
                 delay: index * 0.02,
