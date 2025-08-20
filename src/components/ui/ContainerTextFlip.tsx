@@ -90,7 +90,7 @@ export function ContainerTextFlip({
               key={index}
               initial={{
                 opacity: 0,
-                filter: `blur(${isMobile ? "3px" : "10px"})`,
+                filter: `blur(${isMobile ? "0px" : "10px"})`,
               }}
               animate={{
                 opacity: 1,
