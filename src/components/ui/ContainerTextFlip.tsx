@@ -46,12 +46,10 @@ export function ContainerTextFlip({
 
   return (
     <motion.div
-      layout
-      layoutId={`words-here-${id}`}
       animate={{ width }}
       transition={{ duration: animationDuration / 2000 }}
       className={cn(
-        "relative inline-block rounded-lg pt-2 pb-3 text-center text-4xl font-bold md:text-7xl z-30",
+        "relative inline-block rounded-lg pt-2 pb-3 text-center text-4xl font-bold md:text-6xl z-30",
         className
       )}
       key={words[currentWordIndex]}
@@ -69,6 +67,7 @@ export function ContainerTextFlip({
           {words[currentWordIndex].split("").map((letter, index) => (
             <motion.span
               key={index}
+              className="antialiased [text-rendering:geometricPrecision] [transform:translateZ(0)]"
               initial={{
                 opacity: 0,
               }}
