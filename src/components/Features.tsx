@@ -11,7 +11,7 @@ const Features = () => {
     <section>
       <Header text="Features" />
       <motion.div
-        variants={fadeIn("", "tween", 0.1, 1)}
+        variants={fadeIn("", "tween", 0.1, 1.5)}
         className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mt-10"
       >
         {features.map(({ feat, Icon }, i) => (

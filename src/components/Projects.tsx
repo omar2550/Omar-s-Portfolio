@@ -10,7 +10,7 @@ const Projects = () => {
   return (
     <section className="padding max-w-7xl mx-auto relative z-0">
       <Header text="Projects" />
-      <motion.div variants={fadeIn("", "tween", 0.1, 1)} className="mt-10">
+      <motion.div variants={fadeIn("", "tween", 0.1, 1.5)} className="mt-10">
         <HoverEffect items={projects} />
       </motion.div>
     </section>

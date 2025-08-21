@@ -25,7 +25,7 @@ const About = () => {
           experiences. My goal is to design user-friendly interfaces and
           contribute to impactful projects as I grow in my development journey.
         </motion.p>
-        <motion.div variants={fadeIn("left", "tween", 0.1, 1)}>
+        <motion.div variants={fadeIn("left", "tween", 0.1, 1.5)}>
           <Image
             src={developer}
             width={300}
