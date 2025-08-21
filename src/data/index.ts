@@ -18,7 +18,7 @@ import {
   vilaAgency,
   specialDesign,
   dashboard,
-  _3dportfolio,
+  omarPortfolio,
 } from '@/assets'
 
 export interface Technology {
@@ -55,13 +55,13 @@ import { GiBrain } from "react-icons/gi";
 
 export const projects = [
   {
-    title: "3D-Portfolio",
+    title: "Omar's Portfolio",
     description:
       "An interactive 3D portfolio website with smooth animations and optimized performance. Built using Three.js and Framer Motion, which helped me strengthen my skills in React, Next.js, TypeScript, and Tailwind CSS.",
-    link: "https://github.com/omar2550/3D-Portfolio",
-    liveLink: "https://3d-portfolio-2550.netlify.app/",
-    image: _3dportfolio,
-    tech: [TbBrandNextjs, RiTailwindCssFill, BiLogoTypescript]
+    link: "https://github.com/omar2550/Omar-s-Portfolio",
+    liveLink: "https://omar-s-portfolio-eight.vercel.app/",
+    image: omarPortfolio,
+    tech: [TbBrandNextjs, RiTailwindCssFill, BiLogoTypescript, TbBrandThreejs, TbBrandFramerMotion]
   },
   {
     title: "Portfolio",
@@ -70,7 +70,7 @@ export const projects = [
     link: "https://github.com/omar2550/Portfolio",
     liveLink: "https://portofolio-react-2550.netlify.app/",
     image: portfolio,
-    tech: [TbBrandNextjs, RiTailwindCssFill, BiLogoTypescript, TbBrandThreejs, TbBrandFramerMotion]
+    tech: [TbBrandNextjs, RiTailwindCssFill, BiLogoTypescript]
   },
   {
     title: "Weather",

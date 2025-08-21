@@ -12,7 +12,7 @@ import sass from './tech/sass.png'
 import threejs from './tech/threejs.png'
 import nextjs from './tech/Next.js_Symbol_Alternative_0.png'
 
-import _3dportfolio from './projects/3d-portfolio.png';
+import omarPortfolio from "./projects/omar's-portfolio.png";
 import portfolio from './projects/portfolio.png'
 import weather from './projects/weather.png'
 import vilaAgency from './projects/vila.png'
@@ -38,5 +38,5 @@ export {
   vilaAgency,
   specialDesign,
   dashboard,
-  _3dportfolio,
+  omarPortfolio,
 };

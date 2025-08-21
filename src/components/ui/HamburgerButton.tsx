@@ -19,7 +19,7 @@ export default function HamburgerButton({
       if (
         openRef.current &&
         !openRef.current.contains(e.target as Node) &&
-        !exceptionRefs.some((ref) => ref.current.contains(e.target as Node))
+        !exceptionRefs.some((ref) => ref.current?.contains(e.target as Node))
       )
         setOpen(false);
     };
@@ -27,8 +27,7 @@ export default function HamburgerButton({
     document.addEventListener("pointerdown", handleToggle);
 
     return () => document.removeEventListener("pointerdown", handleToggle);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [exceptionRefs]);
 
   return (
     <div className="sm:hidden relative">
