@@ -62,11 +62,9 @@ const TechCard = ({ icon, name, idx }: TechCardProps) => {
     >
       <motion.div
         variants={fadeIn("right", "spring", idx * 0.5, 0.75)}
-        className="w-full bg-gradient p-[1px] rounded-[20px] shadow-xl flex justify-center items-center"
+        className="w-full bg-gradient p-[1px] rounded-[20px] shadow-xl flex justify-center items-center py-5 px-12"
       >
-        <div className="py-5 px-12 min-h-[280px]">
-          <Image src={icon} alt={name} width={200} height={200} />
-        </div>
+        <Image src={icon} alt={name} width={200} height={200} />
       </motion.div>
     </Tilt>
   );
