@@ -194,7 +194,7 @@ const Navbar = ({
                 key={`link=${idx}`}
                 href={navItem.link}
                 className={
-                  "relative text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-white/10 p-3 rounded-2xl"
+                  "relative text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:translate-x-2.5 p-3"
                 }
               >
                 <span className="text-sm">{navItem.name}</span>
@@ -202,7 +202,7 @@ const Navbar = ({
             ))}
             <div className="text-sm relative" ref={themeHamburRef}>
               <button
-                className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light cursor-pointer hover:bg-white/10 p-3 rounded-2xl border-none outline-none"
+                className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light cursor-pointer hover:translate-x-2.5 p-3 border-none outline-none"
                 onClick={() => setThemeMenu(!themeMenu)}
                 aria-haspopup="true"
                 aria-expanded={themeMenu}
