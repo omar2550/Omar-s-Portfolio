@@ -131,7 +131,7 @@ const Navbar = ({
               key={`link=${idx}`}
               href={navItem.link}
               className={cn(
-                "relative text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-white/10 p-3 md:p-6"
+                "relative text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-white/10 p-4 rounded-3xl"
               )}
             >
               <span className="text-sm">{navItem.name}</span>
@@ -139,7 +139,7 @@ const Navbar = ({
           ))}
           <div className="text-sm relative" ref={themeRef}>
             <button
-              className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light cursor-pointer border-none outline-none"
+              className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-white/10 p-4 rounded-3xl cursor-pointer border-none outline-none"
               onClick={() => setThemeMenu(!themeMenu)}
               aria-haspopup="true"
               aria-expanded={themeMenu}
@@ -194,7 +194,7 @@ const Navbar = ({
                 key={`link=${idx}`}
                 href={navItem.link}
                 className={cn(
-                  "relative text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-white/10 p-3 md:p-6"
+                  "relative text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-white/10 p-3 md:p-6 rounded-3xl"
                 )}
               >
                 <span className="text-sm">{navItem.name}</span>
@@ -202,7 +202,7 @@ const Navbar = ({
             ))}
             <div className="text-sm relative" ref={themeHamburRef}>
               <button
-                className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light cursor-pointer border-none outline-none"
+                className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light cursor-pointer hover:bg-white/10 p-3 rounded-3xl border-none outline-none"
                 onClick={() => setThemeMenu(!themeMenu)}
                 aria-haspopup="true"
                 aria-expanded={themeMenu}
