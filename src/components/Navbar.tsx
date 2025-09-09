@@ -125,13 +125,13 @@ const Navbar = ({
             OMAR
           </h1>
         </Link>
-        <div className="hidden sm:flex items-center justify-center space-x-4 md:space-x-6">
+        <div className="hidden sm:flex items-center justify-center">
           {navItems.map((navItem, idx) => (
             <a
               key={`link=${idx}`}
               href={navItem.link}
               className={cn(
-                "relative text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:font-bold"
+                "relative text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:font-bold p-3 md:p-6"
               )}
             >
               <span className="text-sm">{navItem.name}</span>
@@ -188,13 +188,13 @@ const Navbar = ({
         <HamburgerButton
           exceptionRefs={[themeHamburRef as React.RefObject<HTMLElement>]}
         >
-          <div className="flex justify-start flex-col space-y-4 p-4 bg-gradient shadow-xl absolute top-10 right-0">
+          <div className="flex justify-start flex-col bg-gradient shadow-xl absolute top-10 right-0">
             {navItems.map((navItem, idx) => (
               <a
                 key={`link=${idx}`}
                 href={navItem.link}
                 className={cn(
-                  "relative text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:font-bold"
+                  "relative text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:font-bold p-3 md:p-6"
                 )}
               >
                 <span className="text-sm">{navItem.name}</span>

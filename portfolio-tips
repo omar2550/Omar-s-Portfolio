@@ -1,0 +1,15 @@
+-- Make dark/system/light themes. ==done==
+-- Make the portfolio ar/en languages.
+-- Search for the colors and gradients ==done==.
+-- I will use models like ==done== 
+   |__Spotlight from Aceternity ui, 
+   |__Balls(to show skills) frome react-three/(fiber,drei),
+-- I will use motion for animation. ==done==
+=============================================================
+*Projects:
+1- portfolio [ next, ts, tailwind ]
+2- 3d portfolio [ next, ts, tailwind, threejs, framer-motion ]
+3- weather [ react, redux-toolkit, APIs (axios), mui ]
+4- vila-agency [ bootstrap, sass, js ]
+5- special design [ HTML, CSS, JS ]
+6- dashboard [ HTML, CSS ]

@@ -19,13 +19,13 @@ import {
   specialDesign,
   dashboard,
   omarPortfolio,
-} from '@/assets'
+  storageDashboard,
+} from "@/assets";
 
 export interface Technology {
   name: string;
   icon: StaticImageData;
 }
-
 
 export const technologies: Technology[] = [
   { name: "HTML 5", icon: html },
@@ -41,14 +41,33 @@ export const technologies: Technology[] = [
   { name: "Sass", icon: sass },
   { name: "three.js", icon: threejs },
   { name: "Next.js", icon: nextjs },
-]; 
+];
 
-import { FaHtml5, FaBootstrap, FaSass, FaJs, FaReact, FaGithub } from "react-icons/fa6";
+import {
+  FaHtml5,
+  FaBootstrap,
+  FaSass,
+  FaJs,
+  FaReact,
+  FaGithub,
+} from "react-icons/fa6";
 import { IoLogoCss3 } from "react-icons/io";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { BiLogoTypescript } from "react-icons/bi";
-import { TbBrandThreejs, TbBrandFramerMotion, TbBrandRedux, TbBrandNextjs } from "react-icons/tb";
-import { SiPostman, SiMui } from "react-icons/si";
+import {
+  TbBrandThreejs,
+  TbBrandFramerMotion,
+  TbBrandRedux,
+  TbBrandNextjs,
+} from "react-icons/tb";
+import {
+  SiPostman,
+  SiMui,
+  SiReactquery,
+  SiShadcnui,
+  SiReactrouter,
+  SiSupabase,
+} from "react-icons/si";
 import { MdDevices } from "react-icons/md";
 import { VscCode } from "react-icons/vsc";
 import { GiBrain } from "react-icons/gi";
@@ -61,7 +80,25 @@ export const projects = [
     link: "https://github.com/omar2550/Omar-s-Portfolio",
     liveLink: "https://omar-s-portfolio-eight.vercel.app/",
     image: omarPortfolio,
-    tech: [TbBrandNextjs, RiTailwindCssFill, BiLogoTypescript, TbBrandThreejs, TbBrandFramerMotion]
+    tech: [
+      TbBrandNextjs,
+      RiTailwindCssFill,
+      BiLogoTypescript,
+      TbBrandThreejs,
+      TbBrandFramerMotion,
+    ],
+  },
+  {
+    title: "Storage Dashboard",
+    description: `In this project, I built a fully responsive real-time dashboard using BaaS for authentication. Products
+are visible only to the authenticated user, who can easily manage their own products and track sales.
+The dashboard features modern, user-friendly, and responsive design with clean charts that display
+sales data, including yearly insights. I leveraged libraries such as React Router, TankStack Query(React Query), and
+shadcn to deliver a smooth, fast, and scalable user experience.`,
+    link: "https://github.com/omar2550/storage-dashboard",
+    liveLink: "https://storage-dashboard-murex.vercel.app/",
+    image: storageDashboard,
+    tech: [SiReactrouter, SiReactquery, SiSupabase, SiShadcnui],
   },
   {
     title: "Portfolio",
@@ -70,7 +107,7 @@ export const projects = [
     link: "https://github.com/omar2550/Portfolio",
     liveLink: "https://portofolio-react-2550.netlify.app/",
     image: portfolio,
-    tech: [TbBrandNextjs, RiTailwindCssFill, BiLogoTypescript]
+    tech: [TbBrandNextjs, RiTailwindCssFill, BiLogoTypescript],
   },
   {
     title: "Weather",
@@ -79,7 +116,7 @@ export const projects = [
     link: "https://github.com/omar2550/React-Weather",
     liveLink: "https://omar2550.github.io/React-Weather/",
     image: weather,
-    tech: [FaReact, TbBrandRedux, SiPostman, SiMui]
+    tech: [FaReact, TbBrandRedux, SiPostman, SiMui],
   },
   {
     title: "Vila Agency",
@@ -88,7 +125,7 @@ export const projects = [
     link: "https://github.com/omar2550/Villa-agency",
     liveLink: "https://omar2550.github.io/Villa-agency/",
     image: vilaAgency,
-    tech: [FaBootstrap, FaSass, FaJs]
+    tech: [FaBootstrap, FaSass, FaJs],
   },
   {
     title: "Special Design",
@@ -97,7 +134,7 @@ export const projects = [
     link: "https://github.com/omar2550/Special-Design",
     liveLink: "https://omar2550.github.io/Special-Design/",
     image: specialDesign,
-    tech: [FaHtml5, IoLogoCss3, FaJs]
+    tech: [FaHtml5, IoLogoCss3, FaJs],
   },
   {
     title: "Dashboard",
@@ -106,10 +143,9 @@ export const projects = [
     link: "https://github.com/omar2550/Tempalet_4",
     liveLink: "https://omar2550.github.io/Tempalet_4/",
     image: dashboard,
-    tech: [FaHtml5, IoLogoCss3]
+    tech: [FaHtml5, IoLogoCss3],
   },
 ];
-
 
 export const features = [
   {
@@ -132,12 +168,12 @@ export const features = [
     feat: "Experienced in version control with Git/GitHub and teamwork-friendly.",
     Icon: FaGithub,
   },
-]
+];
 
 export const navItems = [
-  {name: "About",link: "#about"},
-  {name: "Skills",link: "#skills"},
-  {name: "Projects",link: "#projects"},
-  {name: "Features",link: "#features"},
-  {name: "Contact",link: "#contact"},
-]
+  { name: "About", link: "#about" },
+  { name: "Skills", link: "#skills" },
+  { name: "Projects", link: "#projects" },
+  { name: "Features", link: "#features" },
+  { name: "Contact", link: "#contact" },
+];
