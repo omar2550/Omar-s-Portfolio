@@ -131,7 +131,7 @@ const Navbar = ({
               key={`link=${idx}`}
               href={navItem.link}
               className={cn(
-                "relative text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:font-bold p-3 md:p-6"
+                "relative text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-white/10 p-3 md:p-6"
               )}
             >
               <span className="text-sm">{navItem.name}</span>
@@ -194,7 +194,7 @@ const Navbar = ({
                 key={`link=${idx}`}
                 href={navItem.link}
                 className={cn(
-                  "relative text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:font-bold p-3 md:p-6"
+                  "relative text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-white/10 p-3 md:p-6"
                 )}
               >
                 <span className="text-sm">{navItem.name}</span>
