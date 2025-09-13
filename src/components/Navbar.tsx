@@ -188,7 +188,7 @@ const Navbar = ({
         <HamburgerButton
           exceptionRefs={[themeHamburRef as React.RefObject<HTMLElement>]}
         >
-          <div className="flex justify-start flex-col bg-gradient shadow-xl absolute top-10 right-0">
+          <div className="flex justify-start flex-col bg-gradient shadow-xl absolute top-10 right-0 p-1">
             {navItems.map((navItem, idx) => (
               <a
                 key={`link=${idx}`}
@@ -217,7 +217,7 @@ const Navbar = ({
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="absolute top-0 left-[-90%] -translate-x-1/2 bg-gradient p-3 space-y-2 shadow-xl text-primary"
+                    className="absolute top-0 left-0 -translate-x-full bg-gradient p-3 space-y-2 shadow-xl text-primary"
                   >
                     <li
                       role="menuitem"
