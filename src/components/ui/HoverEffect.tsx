@@ -5,6 +5,7 @@ import Image, { StaticImageData } from "next/image";
 import { HiExternalLink } from "react-icons/hi";
 
 import React, { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 export const HoverEffect = ({
   items,
@@ -23,6 +24,8 @@ export const HoverEffect = ({
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const [isMobile, setIsMobile] = useState(false);
+
+  const t = useTranslations("projects");
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -68,8 +71,10 @@ export const HoverEffect = ({
             <div className="flex justify-between flex-col w-full h-full">
               <div>
                 <CardImage src={item.image} alt={item.title} />
-                <CardTitle>{item.title}</CardTitle>
-                <CardDescription>{item.description}</CardDescription>
+                <CardTitle>{t(`project${idx + 1}.title`)}</CardTitle>
+                <CardDescription>
+                  {t(`project${idx + 1}.description`)}
+                </CardDescription>
               </div>
               <div className="flex justify-between flex-wrap sm:flex-nowrap gap-y-3 items-center my-3">
                 <Cardtechs techs={item.tech} />
@@ -81,7 +86,7 @@ export const HoverEffect = ({
                     window.open(item.liveLink, "_blank", "noopener,noreferrer");
                   }}
                 >
-                  <p className="line-clamp-1">Check Live Server</p>
+                  <p className="line-clamp-1">{t("liveServer")}</p>
                   <HiExternalLink />
                 </button>
               </div>
@@ -156,11 +161,15 @@ export const CardDescription = ({
     </p>
   );
 };
+
+import { useLocale } from "next-intl";
 export const Cardtechs = ({
   techs,
 }: {
   techs: React.ComponentType<{ size?: number; color?: string }>[];
 }) => {
+  const locale = useLocale();
+
   return (
     <div className="flex justify-center items-center">
       {techs.map((Icon, i) => (
@@ -168,7 +177,7 @@ export const Cardtechs = ({
           key={`project-tech-${i}`}
           className="border border-white/[0.2] rounded-full w-8 h-8 lg:w-10 lg:h-10 flex justify-center items-center bg-slate-400 dark:bg-slate-800"
           style={{
-            transform: `translateX(-${10 * i}px)`,
+            transform: `translateX(${locale === "ar" ? "" : "-"}${10 * i}px)`,
           }}
         >
           <Icon color="#FFF" size={18} />

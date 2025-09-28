@@ -5,9 +5,12 @@ import Webdev from "./canvas/Webdev";
 import { motion } from "framer-motion";
 import { zoomIn } from "@/utils/motion";
 import Link from "next/link";
-import { FaLocationArrow } from "react-icons/fa6";
+import { FaDownload } from "react-icons/fa6";
+import { useTranslations } from "next-intl";
 
 const Hero = () => {
+  const t = useTranslations("hero");
+
   return (
     <section
       id="home"
@@ -40,30 +43,34 @@ const Hero = () => {
         >
           <div>
             <h1 className="block sm:hidden text-gradient text-3xl font-black">
-              Turning Your Ideas <br /> Into Reality
+              {t("title1")} <br /> {t("title2")}
             </h1>
             <h1 className="hidden sm:block text-gradient text-3xl sm:text-[2.5rem] md:text-[4rem] font-black">
-              You Dream, <br />I{" "}
-              <ContainerTextFlip textClassName="text-primary text-3xl sm:text-[2.5rem] md:text-[4rem]" />
+              {t("subtitle1")} <br />
+              {t("subtitle2")}{" "}
+              <ContainerTextFlip
+                words={[t("word1"), t("word2"), t("word3")]}
+                textClassName="text-primary text-3xl sm:text-[2.5rem] md:text-[4rem]"
+              />
             </h1>
             <p className="text-sm sm:text-[18px] md:text-xl text-primary mt-2 sm:w-sm md:w-md">
-              Hi, I’m Omar.
-              <br />A Front-End Developer passionate about crafting beautiful,
-              responsive, and user-friendly interfaces.
+              {t("introHeader")}
+              <br />
+              {t("introDesc")}
             </p>
           </div>
           <div className="flex justify-center sm:justify-start items-center mt-7 gap-5 flex-col sm:flex-row">
             <Link href="#about">
               <button className="py-3 px-5 text-sm sm:text-[16px] bg-primary-light text-white font-bold duration-400 hover:bg-primary hover:scale-[1.1] border-none outline-none rounded-md cursor-pointer">
-                Get Started
+                {t("getStarted")}
               </button>
             </Link>
             <a
-              href="https://github.com/omar2550"
-              target="_blank"
+              href="/cv.pdf"
+              download={true}
               className="text-sm sm:text-[16px] text-primary flex gap-2"
             >
-              My Github <FaLocationArrow />
+              {t("myCV")} <FaDownload />
             </a>
           </div>
         </motion.div>

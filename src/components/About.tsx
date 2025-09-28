@@ -5,25 +5,20 @@ import { fadeIn } from "@/utils/motion";
 import Image from "next/image";
 import Header from "./ui/Header";
 import developer from "@/assets/work-steps.png";
+import { useTranslations } from "next-intl";
 
 const About = () => {
+  const t = useTranslations("aboutMe");
+
   return (
     <section>
-      <Header text="about me" />
+      <Header text={t("heading")} />
       <div className="mt-10 flex flex-col sm:flex-row justify-start sm:justify-between items-center gap-y-10 gap-x-3">
         <motion.p
           variants={fadeIn("right", "tween", 0.1, 1)}
           className="text-text text-sm sm:text-[18px] md:text-xl max-w-xl leading-[30px]"
         >
-          I&apos;m Omar Hassein, a second-year Computer Science student at Ain
-          Shams University. <br />
-          I&apos;m a front-end developer passionate about building interactive
-          and visually appealing web applications. I enjoy learning new
-          technologies and continuously improving my skills in React, Next.js,
-          TypeScript, and Tailwind CSS. Recently, I’ve also explored libraries
-          like Three.js and Framer Motion to create more dynamic user
-          experiences. My goal is to design user-friendly interfaces and
-          contribute to impactful projects as I grow in my development journey.
+          {t("intro")}
         </motion.p>
         <motion.div variants={fadeIn("left", "tween", 0.1, 1.5)}>
           <Image

@@ -13,7 +13,6 @@ import {
   sass,
   threejs,
   nextjs,
-  portfolio,
   weather,
   vilaAgency,
   specialDesign,
@@ -99,15 +98,6 @@ shadcn to deliver a smooth, fast, and scalable user experience.`,
     liveLink: "https://storage-dashboard-murex.vercel.app/",
     image: storageDashboard,
     tech: [SiReactrouter, SiReactquery, SiSupabase, SiShadcnui],
-  },
-  {
-    title: "Portfolio",
-    description:
-      "My first portfolio template, where I explored how a portfolio should be structured and designed. I also integrated modern UI components from Aceternity UI and practiced building reusable layouts with Next.js, TypeScript, and Tailwind CSS.",
-    link: "https://github.com/omar2550/Portfolio",
-    liveLink: "https://portofolio-react-2550.netlify.app/",
-    image: portfolio,
-    tech: [TbBrandNextjs, RiTailwindCssFill, BiLogoTypescript],
   },
   {
     title: "Weather",

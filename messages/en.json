@@ -1,0 +1,81 @@
+{
+  "nav": {
+    "About": "About",
+    "Skills": "Skills",
+    "Projects": "Projects",
+    "Features": "Features",
+    "Contact": "Contact",
+    "theme": "Theme",
+    "light": "Light",
+    "system": "System",
+    "dark": "Dark"
+  },
+  "hero": {
+    "title1": "Turning Your Ideas",
+    "title2": "Into Reality",
+    "subtitle1": "You Dream,",
+    "subtitle2": "I",
+    "word1": "Plan",
+    "word2": "Design",
+    "word3": "Build",
+    "introHeader": "Hi, I’m Omar.",
+    "introDesc": "A Front-End Developer passionate about crafting beautiful, responsive, and user-friendly interfaces.",
+    "getStarted": "Get Started",
+    "myCV": "Download My CV"
+  },
+  "aboutMe": {
+    "heading": "About Me",
+    "intro": "Hi, I’m Omar Hassein, a second-year Computer Science student at Ain Shams University. I’m a front-end developer passionate about building interactive and visually appealing web applications. I enjoy learning new technologies and continuously improving my skills in React, Next.js, TypeScript, and Tailwind CSS. Recently, I’ve also explored libraries like Three.js and Framer Motion to create more dynamic user experiences. My goal is to design user-friendly interfaces and contribute to impactful projects as I grow in my development journey."
+  },
+  "skills": {
+    "heading": "My Skills"
+  },
+  "projects": {
+    "heading": "Projects",
+    "liveServer": "Check Live Server",
+    "project1": {
+      "title": "Omar's Portfolio",
+      "description": "An interactive 3D portfolio website with smooth animations and optimized performance. Built using Three.js and Framer Motion, which helped me strengthen my skills in React, Next.js, TypeScript, and Tailwind CSS."
+    },
+    "project2": {
+      "title": "Storage Dashboard",
+      "description": "In this project, I built a fully responsive real-time dashboard using BaaS for authentication. Products are visible only to the authenticated user, who can easily manage their own products and track sales. The dashboard features modern, user-friendly, and responsive design with clean charts that display sales data, including yearly insights."
+    },
+    "project3": {
+      "title": "Weather App",
+      "description": "A weather application built with React.js, featuring real-time data from external APIs. I used React Hooks, Redux Toolkit, and Material UI for a clean and responsive design."
+    },
+    "project4": {
+      "title": "Vila Agency",
+      "description": "A responsive agency website focused on improving my skills in Bootstrap, Sass, and JavaScript. This project helped me practice both design aesthetics and interactivity."
+    },
+    "project5": {
+      "title": "Special Design",
+      "description": "A customizable design template using HTML5, CSS3, and JavaScript. Users can change settings according to their preferences, with data saved in localStorage. This project enhanced my understanding of client-side storage."
+    },
+    "project6": {
+      "title": "Dashboard Layout",
+      "description": "A static dashboard layout created with HTML5 and CSS3 to showcase my front-end design skills. This project allowed me to focus on layout design and clean UI development."
+    }
+  },
+  "features": {
+    "heading": "Features",
+    "list": [
+      "Websites that work perfectly on all devices, from mobile to desktop.",
+      "I write clean, reusable, and well-structured code for better maintainability.",
+      "I use modern frameworks and libraries like React, Next.js, and Tailwind CSS.",
+      "Strong problem-solving skills and ability to find creative solutions.",
+      "Experienced in version control with Git/GitHub and teamwork-friendly."
+    ]
+  },
+  "contact": {
+    "heading": "Get in touch",
+    "name": "Your Name",
+    "nameHolder": "What's your name?",
+    "email": "Your Email",
+    "emailHolder": "What's your email?",
+    "message": "Your Message",
+    "messageHolder": "What do you want to say?",
+    "send": "Send"
+  }
+}

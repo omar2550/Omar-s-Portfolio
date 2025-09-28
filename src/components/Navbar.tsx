@@ -10,6 +10,8 @@ import { motion as m, AnimatePresence as Animate } from "framer-motion";
 import { cn } from "@/lib/utils";
 import HamburgerButton from "./ui/HamburgerButton";
 import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
+import { usePathname, useRouter } from "next/navigation";
 
 const Navbar = ({
   navItems,
@@ -24,7 +26,8 @@ const Navbar = ({
   const { scrollYProgress } = useScroll();
 
   const [visible, setVisible] = useState(true);
-  const [themeMenu, setThemeMenu] = useState(false);
+  const [themeMenuDesktop, setThemeMenuDesktop] = useState(false);
+  const [themeMenuMobile, setThemeMenuMobile] = useState(false);
 
   const themeRef = useRef<HTMLDivElement>(null);
   const themeHamburRef = useRef<HTMLDivElement>(null);
@@ -54,7 +57,7 @@ const Navbar = ({
   useEffect(() => {
     const handleClose = (e: MouseEvent | TouchEvent | PointerEvent) => {
       if (themeRef.current && !themeRef.current.contains(e.target as Node))
-        setThemeMenu(false);
+        setThemeMenuDesktop(false);
     };
     document.addEventListener("pointerdown", handleClose);
     return () => document.removeEventListener("pointerdown", handleClose);
@@ -99,9 +102,27 @@ const Navbar = ({
     }
   });
 
+  const t = useTranslations("nav");
+
+  const locale = useLocale();
+  const router = useRouter();
+  const pathName = usePathname();
+
+  const changeLanguage = (newLang: string) => {
+    if (newLang !== locale) {
+      const segments = pathName.split("/");
+      segments[1] = newLang;
+
+      const newPath = segments.join("/") || "/";
+      router.replace(newPath);
+      router.refresh();
+    }
+  };
+
   return (
     <AnimatePresence mode="wait">
       <motion.div
+        dir="ltr"
         initial={{
           opacity: 1,
           y: -100,
@@ -125,7 +146,10 @@ const Navbar = ({
             OMAR
           </h1>
         </Link>
-        <div className="hidden sm:flex items-center justify-center">
+
+        {/* Navbar For Large Devices */}
+
+        <div className="hidden sm:flex items-center justify-center" dir="ltr">
           {navItems.map((navItem, idx) => (
             <a
               key={`link=${idx}`}
@@ -134,27 +158,27 @@ const Navbar = ({
                 "relative text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-white/10 px-4 py-2 rounded-2xl"
               )}
             >
-              <span className="text-sm">{navItem.name}</span>
+              <span className="text-sm">{t(navItem.name)}</span>
             </a>
           ))}
           <div className="text-sm relative" ref={themeRef}>
             <button
               className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-white/10 px-4 py-2 rounded-2xl cursor-pointer border-none outline-none"
-              onClick={() => setThemeMenu(!themeMenu)}
+              onClick={() => setThemeMenuDesktop(!themeMenuDesktop)}
               aria-haspopup="true"
-              aria-expanded={themeMenu}
+              aria-expanded={themeMenuDesktop}
             >
-              Theme
+              {t("theme")}
             </button>
             <Animate>
-              {themeMenu && (
+              {themeMenuDesktop && (
                 <m.ul
                   role="menu"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="absolute top-7 right-0 bg-gradient p-3 space-y-2 shadow-xl text-primary"
+                  className="absolute top-10 right-0 bg-gradient p-3 space-y-2 shadow-xl text-primary"
                 >
                   <li
                     role="menuitem"
@@ -162,7 +186,7 @@ const Navbar = ({
                     className="cursor-pointer hover:text-primary-light duration-300"
                     onClick={() => applyTheme("light")}
                   >
-                    Light
+                    {t("light")}
                   </li>
                   <li
                     role="menuitem"
@@ -170,7 +194,7 @@ const Navbar = ({
                     className="cursor-pointer hover:text-primary-light duration-300"
                     onClick={() => applyTheme("system")}
                   >
-                    System
+                    {t("system")}
                   </li>
                   <li
                     role="menuitem"
@@ -178,17 +202,40 @@ const Navbar = ({
                     className="cursor-pointer hover:text-primary-light duration-300"
                     onClick={() => applyTheme("dark")}
                   >
-                    Dark
+                    {t("dark")}
                   </li>
                 </m.ul>
               )}
             </Animate>
           </div>
+          <div>
+            {locale === "ar" ? (
+              <button
+                className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-white/10 px-3 py-2 rounded-2xl cursor-pointer border-none outline-none"
+                onClick={() => changeLanguage("en")}
+              >
+                EN
+              </button>
+            ) : (
+              <button
+                className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-white/10 px-3 py-2 rounded-2xl cursor-pointer border-none outline-none"
+                onClick={() => changeLanguage("ar")}
+              >
+                AR
+              </button>
+            )}
+          </div>
         </div>
+
+        {/* Navbar For mobiles */}
+
         <HamburgerButton
           exceptionRefs={[themeHamburRef as React.RefObject<HTMLElement>]}
+          setThemeMenuMobile={setThemeMenuMobile}
         >
-          <div className="flex justify-start flex-col bg-gradient shadow-xl absolute top-10 right-0 p-1">
+          <div
+            className={`flex justify-start flex-col bg-gradient shadow-xl absolute p-2 top-10 right-0 `}
+          >
             {navItems.map((navItem, idx) => (
               <a
                 key={`link=${idx}`}
@@ -197,55 +244,84 @@ const Navbar = ({
                   "relative text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:translate-x-2 p-3"
                 }
               >
-                <span className="text-sm">{navItem.name}</span>
+                <span className="text-sm">{t(navItem.name)}</span>
               </a>
             ))}
             <div className="text-sm relative" ref={themeHamburRef}>
               <button
                 className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light cursor-pointer hover:translate-x-2 p-3 border-none outline-none"
-                onClick={() => setThemeMenu(!themeMenu)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setThemeMenuMobile(!themeMenuMobile);
+                }}
                 aria-haspopup="true"
-                aria-expanded={themeMenu}
+                aria-expanded={themeMenuMobile}
               >
-                Theme
+                {t("theme")}
               </button>
               <Animate>
-                {themeMenu && (
+                {themeMenuMobile && (
                   <m.ul
                     role="menu"
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className="absolute top-0 left-0 -translate-x-full bg-gradient p-3 space-y-2 shadow-xl text-primary"
+                    className={`absolute -translate-x-full bg-gradient p-3 space-y-2 shadow-xl text-primary top-0 -left-2`}
                   >
                     <li
                       role="menuitem"
                       tabIndex={0}
                       className="cursor-pointer hover:text-primary-light duration-300"
-                      onClick={() => applyTheme("light")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        applyTheme("light");
+                      }}
                     >
-                      Light
+                      {t("light")}
                     </li>
                     <li
                       role="menuitem"
                       tabIndex={0}
                       className="cursor-pointer hover:text-primary-light duration-300"
-                      onClick={() => applyTheme("system")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        applyTheme("system");
+                      }}
                     >
-                      System
+                      {t("system")}
                     </li>
                     <li
                       role="menuitem"
                       tabIndex={0}
                       className="cursor-pointer hover:text-primary-light duration-300"
-                      onClick={() => applyTheme("dark")}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        applyTheme("dark");
+                      }}
                     >
-                      Dark
+                      {t("dark")}
                     </li>
                   </m.ul>
                 )}
               </Animate>
+            </div>
+            <div>
+              {locale === "ar" ? (
+                <button
+                  className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-white/10 px-3 py-2 rounded-2xl cursor-pointer border-none outline-none"
+                  onClick={() => changeLanguage("en")}
+                >
+                  EN
+                </button>
+              ) : (
+                <button
+                  className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-white/10 px-3 py-2 rounded-2xl cursor-pointer border-none outline-none"
+                  onClick={() => changeLanguage("ar")}
+                >
+                  AR
+                </button>
+              )}
             </div>
           </div>
         </HamburgerButton>

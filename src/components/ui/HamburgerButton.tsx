@@ -1,14 +1,22 @@
 "use client";
 
-import { ReactNode, useState, useRef, useEffect, RefObject } from "react";
+import React, {
+  ReactNode,
+  useState,
+  useRef,
+  useEffect,
+  RefObject,
+} from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function HamburgerButton({
   children,
   exceptionRefs = [],
+  setThemeMenuMobile,
 }: {
   children: ReactNode;
   exceptionRefs?: RefObject<HTMLElement>[];
+  setThemeMenuMobile: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -20,20 +28,24 @@ export default function HamburgerButton({
         openRef.current &&
         !openRef.current.contains(e.target as Node) &&
         !exceptionRefs.some((ref) => ref.current?.contains(e.target as Node))
-      )
+      ) {
         setOpen(false);
+        setThemeMenuMobile(false);
+      }
     };
 
     document.addEventListener("pointerdown", handleToggle);
 
     return () => document.removeEventListener("pointerdown", handleToggle);
-  }, [exceptionRefs]);
+  }, [exceptionRefs, setThemeMenuMobile]);
 
   return (
     <div className="sm:hidden relative">
       <button
         ref={openRef}
-        onClick={() => setOpen((prev) => !prev)}
+        onClick={() => {
+          setOpen((prev) => !prev);
+        }}
         className="relative w-10 h-10 flex items-center justify-center cursor-pointer"
         aria-haspopup="true"
         aria-expanded={open}

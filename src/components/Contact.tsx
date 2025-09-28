@@ -6,6 +6,7 @@ import { slideIn } from "@/utils/motion";
 import Header from "./ui/Header";
 import SectionWrapper from "@/hoc/SectionWrapper";
 import EarthCanvas from "./canvas/Earth";
+import { useTranslations } from "next-intl";
 
 const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -63,9 +64,11 @@ const Contact = () => {
       );
   };
 
+  const t = useTranslations("contact");
+
   return (
     <section className="mt-10">
-      <Header text="Get in touch" />
+      <Header text={t("heading")} />
       <div className="flex items-center flex-col-reverse lg:flex-row gap-10">
         <motion.div
           variants={slideIn("left", "tween", 0.2, 1)}
@@ -78,7 +81,7 @@ const Contact = () => {
           >
             <label htmlFor="name" className="flex flex-col">
               <span className="text-text-secondary font-medium mb-4">
-                Your Name
+                {t("name")}
               </span>
               <input
                 type="text"
@@ -86,13 +89,13 @@ const Contact = () => {
                 id="name"
                 value={form.name}
                 onChange={handleChange}
-                placeholder="What's your name?"
-                className="bg-bg py-4 px-6 placeholder:text-text text-text-secondary rounded-lg border-none outline-none font-medium"
+                placeholder={t("nameHolder")}
+                className="bg-bg py-4 px-6 text-text-secondary rounded-lg border-none outline-none font-medium"
               />
             </label>
             <label htmlFor="email" className="flex flex-col">
               <span className="text-text-secondary font-medium mb-4">
-                Your Email
+                {t("email")}
               </span>
               <input
                 type="email"
@@ -100,13 +103,13 @@ const Contact = () => {
                 id="email"
                 value={form.email}
                 onChange={handleChange}
-                placeholder="What's your email?"
-                className="bg-bg py-4 px-6 placeholder:text-text text-text-secondary rounded-lg border-none outline-none font-medium"
+                placeholder={t("emailHolder")}
+                className="bg-bg py-4 px-6 text-text-secondary rounded-lg border-none outline-none font-medium"
               />
             </label>
             <label htmlFor="message" className="flex flex-col">
               <span className="text-text-secondary font-medium mb-4">
-                Your Message
+                {t("message")}
               </span>
               <textarea
                 rows={7}
@@ -114,15 +117,15 @@ const Contact = () => {
                 id="message"
                 value={form.message}
                 onChange={handleChange}
-                placeholder="What do you want to say?"
-                className="bg-bg py-4 px-6 placeholder:text-text- text-text-secondary rounded-lg border-none outline-none font-medium resize-none"
+                placeholder={t("messageHolder")}
+                className="bg-bg py-4 px-6 text-text-secondary rounded-lg border-none outline-none font-medium resize-none"
               />
             </label>
             <button
               type="submit"
-              className="bg-bg py-4 px-6 text-text-secondary rounded-lg border-none outline-none font-bold w-fit shadow-xl cursor-pointer hover:bg-text-secondary hover:text-white duration-400"
+              className="bg-bg py-4 px-6 text-text-secondary rounded-lg border-none outline-none font-bold w-fit cursor-pointer hover:shadow-2xl duration-400"
             >
-              {loading ? "Sending..." : "Send"}
+              {loading ? t("sending") : t("send")}
             </button>
           </form>
         </motion.div>

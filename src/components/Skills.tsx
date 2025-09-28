@@ -8,6 +8,7 @@ import { fadeIn } from "@/utils/motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Tilt from "react-parallax-tilt";
+import { useTranslations } from "next-intl";
 
 const Skills = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -21,9 +22,11 @@ const Skills = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const t = useTranslations("skills");
+
   return (
     <section>
-      <Header text="my skills" />
+      <Header text={t("heading")} />
       <motion.div
         variants={fadeIn("", "tween", 0.1, 1)}
         className="mt-10 flex flex-wrap justify-center items-center gap-10"

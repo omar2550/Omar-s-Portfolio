@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 export interface ContainerTextFlipProps {
   /** Array of words to cycle through in the animation */
-  words?: string[];
+  words: string[];
   /** Time in milliseconds between word transitions */
   interval?: number;
   /** Additional CSS classes to apply to the container */
@@ -19,7 +19,7 @@ export interface ContainerTextFlipProps {
 }
 
 export function ContainerTextFlip({
-  words = ["Plan", "Design", "Build"],
+  words,
   interval = 3000,
   className,
   textClassName,

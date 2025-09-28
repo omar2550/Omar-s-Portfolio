@@ -5,11 +5,14 @@ import { fadeIn } from "@/utils/motion";
 import { HoverBorderGradient } from "./ui/HoverBorderGradient";
 import { features } from "@/data";
 import SectionWrapper from "@/hoc/SectionWrapper";
+import { useTranslations } from "next-intl";
 
 const Features = () => {
+  const t = useTranslations("features");
+
   return (
     <section>
-      <Header text="Features" />
+      <Header text={t("heading")} />
       <motion.div
         variants={fadeIn("", "tween", 0.1, 1.5)}
         className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mt-10"
@@ -23,7 +26,7 @@ const Features = () => {
             <div className="text-text-secondary flex justify-center items-center text-5xl">
               <Icon />
             </div>
-            <h4 className="text-primary">{feat}</h4>
+            <h4 className="text-primary">{t.raw(`list`)[i]}</h4>
           </HoverBorderGradient>
         ))}
       </motion.div>
