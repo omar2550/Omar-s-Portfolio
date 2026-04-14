@@ -14,8 +14,11 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative paddingX h-screen flex w-full items-center justify-center bg-bg"
+      className="relative paddingX min-h-screen flex w-full items-center justify-center bg-bg pt-24 sm:pt-20"
     >
+      <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[70vw] h-[70vw] rounded-full bg-primary/10 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-24 right-0 w-[40vw] h-[40vw] rounded-full bg-accent/15 blur-3xl" />
+
       <div
         className="absolute top-0 left-0 flex h-[50rem] w-full bg-bg
          items-center justify-center"
@@ -23,29 +26,33 @@ const Hero = () => {
         <div
           className={cn(
             "absolute inset-0",
-            "[background-size:40px_40px]",
-            "[background-image:linear-gradient(to_right,#e4e4e7_0.07px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_0.07px,transparent_1px)]",
-            "dark:[background-image:linear-gradient(to_right,#262626_0.07px,transparent_1px),linear-gradient(to_bottom,#262626_0.07px,transparent_1px)]"
+            "[background-size:36px_36px]",
+            "[background-image:linear-gradient(to_right,rgba(148,163,184,0.18)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.18)_1px,transparent_1px)]",
+            "dark:[background-image:linear-gradient(to_right,rgba(51,65,85,0.32)_1px,transparent_1px),linear-gradient(to_bottom,rgba(51,65,85,0.32)_1px,transparent_1px)]"
           )}
         />
         <div
-          className="pointer-events-none absolute inset-0 flex items-center 
+          className="pointer-events-none absolute inset-0 flex items-center
           justify-center bg-bg
-          [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
+          [mask-image:radial-gradient(ellipse_at_center,transparent_18%,black)]"
         />
       </div>
-      <div className="relative w-[90vw] h-full z-20 flex justify-center sm:justify-between gap-y-10 items-center flex-col sm:flex-row text-center sm:text-start">
+      <div className="relative max-w-7xl mx-auto w-full h-full z-20 flex justify-center sm:justify-between gap-y-10 items-center flex-col sm:flex-row text-center sm:text-start">
         <motion.div
           variants={zoomIn()}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
+          className="max-w-2xl"
         >
+          <p className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 text-primary px-4 py-1 text-xs sm:text-sm mb-5">
+            Front-end Developer • React / Next.js / TypeScript
+          </p>
           <div>
-            <h1 className="block sm:hidden text-gradient text-3xl font-black">
+            <h1 className="block sm:hidden text-gradient text-3xl font-black leading-tight">
               {t("title1")} <br /> {t("title2")}
             </h1>
-            <h1 className="hidden sm:block text-gradient text-3xl sm:text-[2.5rem] md:text-[4rem] font-black">
+            <h1 className="hidden sm:block text-gradient text-3xl sm:text-[2.5rem] md:text-[4rem] font-black leading-tight">
               {t("subtitle1")} <br />
               {t("subtitle2")}{" "}
               <ContainerTextFlip
@@ -53,28 +60,28 @@ const Hero = () => {
                 textClassName="text-primary text-3xl sm:text-[2.5rem] md:text-[4rem]"
               />
             </h1>
-            <p className="text-sm sm:text-[18px] md:text-xl text-primary mt-2 sm:w-sm md:w-md">
+            <p className="text-sm sm:text-[18px] md:text-xl text-primary mt-4 sm:w-sm md:w-md leading-relaxed">
               {t("introHeader")}
               <br />
               {t("introDesc")}
             </p>
           </div>
-          <div className="flex justify-center sm:justify-start items-center mt-7 gap-5 flex-col sm:flex-row">
-            <Link href="#about">
-              <button className="py-3 px-5 text-sm sm:text-[16px] bg-primary-light text-white font-bold duration-400 hover:bg-primary hover:scale-[1.1] border-none outline-none rounded-md cursor-pointer">
+          <div className="flex justify-center sm:justify-start items-center mt-8 gap-4 flex-col sm:flex-row">
+            <Link href="#projects">
+              <button className="py-3 px-6 text-sm sm:text-[16px] bg-primary text-white font-bold duration-300 hover:bg-primary-dark hover:-translate-y-0.5 border-none outline-none rounded-xl cursor-pointer shadow-lg shadow-primary/30">
                 {t("getStarted")}
               </button>
             </Link>
             <a
               href="/cv.pdf"
               download={true}
-              className="text-sm sm:text-[16px] text-primary flex gap-2"
+              className="text-sm sm:text-[16px] text-primary flex gap-2 items-center py-2 px-4 rounded-xl border border-primary/20 hover:bg-primary/10 transition-colors"
             >
               {t("myCV")} <FaDownload />
             </a>
           </div>
         </motion.div>
-        <div className="hidden sm:block w-full h-[200px] md:h-[300px]">
+        <div className="hidden sm:block w-full h-[260px] md:h-[360px] lg:h-[420px]">
           <Webdev />
         </div>
       </div>

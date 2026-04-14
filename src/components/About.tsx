@@ -13,17 +13,17 @@ const About = () => {
   return (
     <section>
       <Header text={t("heading")} />
-      <div className="mt-10 flex flex-col sm:flex-row justify-start sm:justify-between items-center gap-y-10 gap-x-3">
+      <div className="mt-10 flex flex-col sm:flex-row justify-start sm:justify-between items-center gap-y-10 gap-x-6">
         <motion.p
           variants={fadeIn("right", "tween", 0.1, 1)}
-          className="text-text text-sm sm:text-[18px] md:text-xl max-w-xl leading-[30px]"
+          className="text-text text-sm sm:text-[18px] md:text-xl max-w-xl leading-[30px] bg-gradient border border-primary/15 rounded-2xl p-6 shadow-lg"
         >
           {t("intro")}
         </motion.p>
         <motion.div variants={fadeIn("left", "tween", 0.1, 1.5)}>
           <Image
             src={developer}
-            width={300}
+            width={340}
             height={300}
             alt="developer"
             style={{ height: "auto", width: "100%" }}

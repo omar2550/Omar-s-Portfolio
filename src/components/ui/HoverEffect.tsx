@@ -37,7 +37,7 @@ export const HoverEffect = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-3",
+        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4",
         className
       )}
     >
@@ -46,14 +46,14 @@ export const HoverEffect = ({
           href={item?.link}
           target="_blank"
           key={item?.link}
-          className="relative group  block p-2 h-full w-full"
+          className="relative group block p-2 h-full w-full"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
           <AnimatePresence>
             {(hoveredIndex === idx || isMobile) && (
               <motion.span
-                className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-slate-800/[0.8] block  rounded-3xl"
+                className="absolute inset-0 h-full w-full bg-neutral-200/80 dark:bg-slate-800/[0.85] block rounded-3xl"
                 layoutId="hoverBackground"
                 initial={{ opacity: 0 }}
                 animate={{
@@ -108,7 +108,7 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-4 overflow-hidden bg-gradient border border-transparent dark:border-white/[0.2] group-hover:border-bg relative z-20 shadow-xl",
+        "rounded-2xl h-full w-full p-4 overflow-hidden bg-gradient border border-primary/10 dark:border-white/[0.18] group-hover:border-primary/30 relative z-20 shadow-xl transition-all duration-300 group-hover:-translate-y-1",
         className
       )}
     >
@@ -123,7 +123,7 @@ export const CardImage = ({
   src: StaticImageData;
   alt: string;
 }) => {
-  return <Image src={src} alt={alt} className="rounded-lg" />;
+  return <Image src={src} alt={alt} className="rounded-lg shadow-md" />;
 };
 export const CardTitle = ({
   className,
@@ -135,7 +135,7 @@ export const CardTitle = ({
   return (
     <h2
       className={cn(
-        "text-primary text-lg font-bold tracking-wide mt-6",
+        "text-primary text-lg font-bold tracking-wide mt-5",
         className
       )}
     >
@@ -153,7 +153,7 @@ export const CardDescription = ({
   return (
     <p
       className={cn(
-        "mt-2 text-text tracking-wide leading-relaxed text-sm",
+        "mt-2 text-text tracking-wide leading-relaxed text-sm line-clamp-3",
         className
       )}
     >
@@ -175,7 +175,7 @@ export const Cardtechs = ({
       {techs.map((Icon, i) => (
         <div
           key={`project-tech-${i}`}
-          className="border border-white/[0.2] rounded-full w-8 h-8 lg:w-10 lg:h-10 flex justify-center items-center bg-slate-400 dark:bg-slate-800"
+          className="border border-white/[0.25] rounded-full w-8 h-8 lg:w-10 lg:h-10 flex justify-center items-center bg-slate-500 dark:bg-slate-800 shadow"
           style={{
             transform: `translateX(${locale === "ar" ? "" : "-"}${10 * i}px)`,
           }}

@@ -17,7 +17,7 @@ const Features = () => {
         variants={fadeIn("", "tween", 0.1, 1.5)}
         className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mt-10"
       >
-        {features.map(({ feat, Icon }, i) => (
+        {features.map(({ Icon }, i) => (
           <HoverBorderGradient
             key={`feat-${i}`}
             containerClassName="rounded-full"

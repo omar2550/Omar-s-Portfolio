@@ -1,20 +1,25 @@
 "use client";
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+import { Float, OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import Loader from "../Loader";
 
 const Earth = () => {
   const { scene } = useGLTF("/planet/scene.gltf");
 
-  return <primitive object={scene} scale={3} position-y={0} rotation-y={0} />;
+  return (
+    <Float speed={1.2} rotationIntensity={0.2} floatIntensity={0.35}>
+      <primitive object={scene} scale={3} position-y={0} rotation-y={0} />
+    </Float>
+  );
 };
 
 const EarthCanvas = () => (
   <Canvas
-    frameloop="demand"
+    frameloop="always"
+    dpr={[1, 1.7]}
     shadows
-    gl={{ preserveDrawingBuffer: true }}
+    gl={{ preserveDrawingBuffer: true, antialias: true }}
     camera={{
       fov: 45,
       near: 0.1,
@@ -23,8 +28,12 @@ const EarthCanvas = () => (
     }}
   >
     <Suspense fallback={<Loader />}>
+      <ambientLight intensity={0.35} />
+      <directionalLight position={[2, 3, 2]} intensity={2.3} color="#60a5fa" />
+      <pointLight position={[-3, -2, 1]} intensity={0.9} color="#22d3ee" />
       <OrbitControls
         autoRotate
+        autoRotateSpeed={0.8}
         enableZoom={false}
         maxPolarAngle={Math.PI / 2}
         minPolarAngle={Math.PI / 2}
