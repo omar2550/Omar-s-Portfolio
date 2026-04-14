@@ -1,56 +1,44 @@
 @import "tailwindcss";
 
-/* ✅ Default Light Theme */
 @theme {
-  --color-bg: #f9fafb;
-  --color-gradient: linear-gradient(135deg, #e7ebee, #e8eef3);
+  --color-bg: #f7f9ff;
+  --color-gradient: radial-gradient(circle at top, #eef4ff, #f8fbff 45%, #eef2ff 100%);
 
-  /* 🎨 Primary & Accent Colors */
   --color-primary: #2563eb;
   --color-primary-light: #3b82f6;
-  --color-accent: #ec4899;
-  --color-accent-light: #f472b6;
+  --color-primary-dark: #1d4ed8;
+  --color-accent: #0ea5e9;
+  --color-accent-light: #38bdf8;
 
-  /* 🖋 Text Colors */
-  --color-text: #4b5563;
-  --color-text-secondary: #111827;
-
-  /* ✨ Text Gradient */
-  --color-heading-gradient: linear-gradient(to right, #2563eb, #38bdf8);
+  --color-text: #475569;
+  --color-text-secondary: #0f172a;
+  --color-heading-gradient: linear-gradient(90deg, #2563eb, #06b6d4 45%, #6366f1 100%);
 }
 
-/* ✅ Define dark variant */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* ✅ Dark Theme Overrides */
 @layer theme {
   @variant dark {
-    --color-bg: #0f172a;
-    --color-gradient: linear-gradient(135deg, #0f172a, #1e293b);
+    --color-bg: #060b18;
+    --color-gradient: radial-gradient(circle at top, #0f172a, #060b18 45%, #0b1220 100%);
 
-    /* 🎨 Primary & Accent Colors */
-    --color-primary: #38bdf8;
-    --color-primary-dark: #0ea5e9;
-    --color-accent: #f472b6;
-    --color-accent-dark: #ec4899;
+    --color-primary: #60a5fa;
+    --color-primary-light: #93c5fd;
+    --color-primary-dark: #38bdf8;
+    --color-accent: #22d3ee;
+    --color-accent-light: #67e8f9;
 
-    /* 🖋 Text Colors */
-    --color-text: #f9fafb;
-    --color-text-secondary: #cbd5e1;
-
-    /* ✨ Text Gradient */
-    --color-heading-gradient: linear-gradient(to right, #38bdf8, #818cf8);
+    --color-text: #cbd5e1;
+    --color-text-secondary: #e2e8f0;
+    --color-heading-gradient: linear-gradient(90deg, #7dd3fc, #a5b4fc 55%, #c084fc 100%);
   }
 }
 
-/* 📌 Utility class for gradient text */
 .text-gradient {
   background: var(--color-heading-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
-  /* Added for better visibility and style */
-  text-shadow: 2px 2px 8px rgba(37, 99, 235, 0.3);
+  text-shadow: 0 6px 24px rgba(37, 99, 235, 0.25);
   transition: text-shadow 0.3s ease;
 }
 
@@ -58,21 +46,21 @@
   background: var(--color-gradient);
 }
 
-/* Dark variant shadow */
 @layer theme {
   :root {
     @variant dark {
       .text-gradient {
-        text-shadow: 2px 2px 8px rgba(96, 165, 250, 0.5);
+        text-shadow: 0 8px 26px rgba(125, 211, 252, 0.28);
       }
     }
   }
 }
 
-/* Fonts for body */
 body {
   font-family: "Poppins", sans-serif;
-  transition: font-family 0.3s ease;
+  color: var(--color-text);
+  background: var(--color-bg);
+  transition: background-color 0.3s ease, color 0.3s ease, font-family 0.3s ease;
 }
 
 @layer theme {
@@ -99,4 +87,25 @@ body {
 
 .paddingY {
   @apply sm:py-16 py-6;
+}
+
+a {
+  transition: color 0.25s ease, background-color 0.25s ease, transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+button,
+input,
+textarea {
+  transition: all 0.25s ease;
+}
+
+:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--color-primary) 85%, white 15%);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-primary) 70%, var(--color-accent) 30%);
+  color: white;
 }

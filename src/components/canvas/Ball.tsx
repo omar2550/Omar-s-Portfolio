@@ -15,12 +15,13 @@ const Ball = ({ imgUrl }: { imgUrl: string }) => {
 
   return (
     <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
-      <ambientLight intensity={0.3} />
+      <ambientLight intensity={0.35} />
+      <pointLight position={[1.5, 1.5, 1]} intensity={9} color="#60a5fa" />
       <directionalLight position={[0, 0, 0.05]} />
       <mesh castShadow receiveShadow scale={2.75}>
         <icosahedronGeometry args={[1, 1]} />
         <meshStandardMaterial
-          color={"#FFF8eb"}
+          color={"#e2e8f0"}
           polygonOffset
           polygonOffsetFactor={-5}
           flatShading
@@ -37,9 +38,9 @@ const Ball = ({ imgUrl }: { imgUrl: string }) => {
 
 const BallCanvas = ({ icon }: { icon: string }) => {
   return (
-    <Canvas frameloop="always" gl={{ preserveDrawingBuffer: true }}>
+    <Canvas frameloop="always" dpr={[1, 1.6]} gl={{ preserveDrawingBuffer: true, antialias: true }}>
       <Suspense fallback={<Loader />}>
-        <OrbitControls enableZoom={false} />
+        <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1.2} />
         <Ball imgUrl={icon} />
       </Suspense>
       <Preload all />

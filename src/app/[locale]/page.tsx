@@ -3,6 +3,7 @@ import {
   About,
   Skills,
   Projects,
+  Experience,
   Features,
   Contact,
   StarsCanvas,
@@ -18,6 +19,7 @@ export default function Home() {
       <About />
       <Skills />
       <Projects />
+      <Experience />
       <Features />
       <div className="relative z-0">
         <Contact />

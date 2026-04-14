@@ -69,15 +69,15 @@ const Contact = () => {
   return (
     <section className="mt-10">
       <Header text={t("heading")} />
-      <div className="flex items-center flex-col-reverse lg:flex-row gap-10">
+      <div className="flex items-center flex-col-reverse lg:flex-row gap-10 lg:gap-14">
         <motion.div
           variants={slideIn("left", "tween", 0.2, 1)}
-          className="flex-[0.75] bg-gradient p-8 rounded-2xl shadow-xl"
+          className="flex-[0.75] bg-gradient p-6 sm:p-8 rounded-3xl border border-primary/15 shadow-xl"
         >
           <form
             ref={formRef}
             onSubmit={handleSubmit}
-            className="flex flex-col mt-12 gap-8"
+            className="flex flex-col mt-8 gap-6"
           >
             <label htmlFor="name" className="flex flex-col">
               <span className="text-text-secondary font-medium mb-4">
@@ -90,7 +90,7 @@ const Contact = () => {
                 value={form.name}
                 onChange={handleChange}
                 placeholder={t("nameHolder")}
-                className="bg-bg py-4 px-6 text-text-secondary rounded-lg border-none outline-none font-medium"
+                className="bg-bg py-4 px-6 text-text-secondary rounded-xl border border-transparent focus:border-primary/40 focus:ring-2 focus:ring-primary/20 outline-none font-medium transition"
               />
             </label>
             <label htmlFor="email" className="flex flex-col">
@@ -104,7 +104,7 @@ const Contact = () => {
                 value={form.email}
                 onChange={handleChange}
                 placeholder={t("emailHolder")}
-                className="bg-bg py-4 px-6 text-text-secondary rounded-lg border-none outline-none font-medium"
+                className="bg-bg py-4 px-6 text-text-secondary rounded-xl border border-transparent focus:border-primary/40 focus:ring-2 focus:ring-primary/20 outline-none font-medium transition"
               />
             </label>
             <label htmlFor="message" className="flex flex-col">
@@ -118,12 +118,12 @@ const Contact = () => {
                 value={form.message}
                 onChange={handleChange}
                 placeholder={t("messageHolder")}
-                className="bg-bg py-4 px-6 text-text-secondary rounded-lg border-none outline-none font-medium resize-none"
+                className="bg-bg py-4 px-6 text-text-secondary rounded-xl border border-transparent focus:border-primary/40 focus:ring-2 focus:ring-primary/20 outline-none font-medium resize-none transition"
               />
             </label>
             <button
               type="submit"
-              className="bg-bg py-4 px-6 text-text-secondary rounded-lg border-none outline-none font-bold w-fit cursor-pointer hover:shadow-2xl duration-400"
+              className="bg-primary-light py-3.5 px-7 text-white rounded-xl border-none outline-none font-bold w-fit cursor-pointer hover:bg-primary hover:-translate-y-0.5 shadow-lg shadow-primary/25 duration-300"
             >
               {loading ? t("sending") : t("send")}
             </button>

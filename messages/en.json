@@ -8,7 +8,9 @@
     "theme": "Theme",
     "light": "Light",
     "system": "System",
-    "dark": "Dark"
+    "dark": "Dark",
+    "Journey": "Journey",
+    "cta": "Let's Talk"
   },
   "hero": {
     "title1": "Turning Your Ideas",
@@ -76,6 +78,39 @@
     "emailHolder": "What's your email?",
     "message": "Your Message",
     "messageHolder": "What do you want to say?",
-    "send": "Send"
+    "send": "Send",
+    "sending": "Sending..."
+  },
+  "journey": {
+    "heading": "My Journey",
+    "subheading": "I focus on turning ideas into polished digital products through a clear process: discovery, building, and continuous optimization.",
+    "metrics": [
+      {
+        "value": "2+",
+        "label": "Years learning and building real projects"
+      },
+      {
+        "value": "6+",
+        "label": "Completed portfolio projects"
+      },
+      {
+        "value": "100%",
+        "label": "Responsive-first interfaces"
+      }
+    ],
+    "phases": [
+      {
+        "title": "Discover & Plan",
+        "description": "I translate business goals into a clear UI structure, user flows, and technical steps before writing code."
+      },
+      {
+        "title": "Build & Animate",
+        "description": "I build reusable components with React/Next.js and add thoughtful motion for a smooth, modern experience."
+      },
+      {
+        "title": "Optimize & Deliver",
+        "description": "I polish performance, accessibility, and responsive behavior to ship a product that feels fast and professional."
+      }
+    ]
   }
 }

@@ -137,7 +137,7 @@ const Navbar = ({
         className={cn(
           `${
             visible ? "fixed top-0 inset-x-0" : "absolute top-0 left-0"
-          } flex items-center justify-between w-full bg-gradient shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] paddingX py-4`,
+          } flex items-center justify-between w-full bg-gradient/95 backdrop-blur-xl border-b border-primary/15 shadow-[0px_8px_30px_-14px_rgba(14,116,144,0.45)] z-[5000] paddingX py-3`,
           className
         )}
       >
@@ -149,13 +149,13 @@ const Navbar = ({
 
         {/* Navbar For Large Devices */}
 
-        <div className="hidden sm:flex items-center justify-center" dir="ltr">
+        <div className="hidden sm:flex items-center justify-center gap-1 md:gap-2" dir="ltr">
           {navItems.map((navItem, idx) => (
             <a
               key={`link=${idx}`}
               href={navItem.link}
               className={cn(
-                "relative text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-white/10 px-4 py-2 rounded-2xl"
+                "relative text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-primary/10 px-4 py-2 rounded-xl"
               )}
             >
               <span className="text-sm">{t(navItem.name)}</span>
@@ -163,7 +163,7 @@ const Navbar = ({
           ))}
           <div className="text-sm relative" ref={themeRef}>
             <button
-              className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-white/10 px-4 py-2 rounded-2xl cursor-pointer border-none outline-none"
+              className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-primary/10 px-4 py-2 rounded-xl cursor-pointer border-none outline-none"
               onClick={() => setThemeMenuDesktop(!themeMenuDesktop)}
               aria-haspopup="true"
               aria-expanded={themeMenuDesktop}
@@ -178,7 +178,7 @@ const Navbar = ({
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="absolute top-10 right-0 bg-gradient p-3 space-y-2 shadow-xl text-primary"
+                  className="absolute top-11 right-0 min-w-32 bg-gradient border border-primary/20 rounded-xl p-3 space-y-2 shadow-xl text-primary"
                 >
                   <li
                     role="menuitem"
@@ -211,20 +211,25 @@ const Navbar = ({
           <div>
             {locale === "ar" ? (
               <button
-                className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-white/10 px-3 py-2 rounded-2xl cursor-pointer border-none outline-none"
+                className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-primary/10 px-3 py-2 rounded-xl cursor-pointer border-none outline-none"
                 onClick={() => changeLanguage("en")}
               >
                 EN
               </button>
             ) : (
               <button
-                className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-white/10 px-3 py-2 rounded-2xl cursor-pointer border-none outline-none"
+                className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-primary/10 px-3 py-2 rounded-xl cursor-pointer border-none outline-none"
                 onClick={() => changeLanguage("ar")}
               >
                 AR
               </button>
             )}
           </div>
+          <Link href="#contact" className="hidden md:inline-flex">
+            <span className="bg-primary text-white text-sm font-semibold px-4 py-2 rounded-xl shadow-md shadow-primary/30 hover:bg-primary-dark">
+              {t("cta")}
+            </span>
+          </Link>
         </div>
 
         {/* Navbar For mobiles */}
@@ -234,14 +239,14 @@ const Navbar = ({
           setThemeMenuMobile={setThemeMenuMobile}
         >
           <div
-            className={`flex justify-start flex-col bg-gradient shadow-xl absolute p-2 top-10 right-0 `}
+            className={`flex justify-start flex-col bg-gradient border border-primary/20 rounded-xl shadow-xl absolute p-2 top-10 right-0 min-w-44`}
           >
             {navItems.map((navItem, idx) => (
               <a
                 key={`link=${idx}`}
                 href={navItem.link}
                 className={
-                  "relative text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:translate-x-2 p-3"
+                  "relative text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:translate-x-1 p-3 rounded-lg"
                 }
               >
                 <span className="text-sm">{t(navItem.name)}</span>
@@ -249,7 +254,7 @@ const Navbar = ({
             ))}
             <div className="text-sm relative" ref={themeHamburRef}>
               <button
-                className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light cursor-pointer hover:translate-x-2 p-3 border-none outline-none"
+                className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light cursor-pointer hover:translate-x-1 p-3 border-none outline-none rounded-lg"
                 onClick={(e) => {
                   e.stopPropagation();
                   setThemeMenuMobile(!themeMenuMobile);
@@ -267,7 +272,7 @@ const Navbar = ({
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className={`absolute -translate-x-full bg-gradient p-3 space-y-2 shadow-xl text-primary top-0 -left-2`}
+                    className={`absolute -translate-x-full bg-gradient border border-primary/20 rounded-xl p-3 space-y-2 shadow-xl text-primary top-0 -left-2`}
                   >
                     <li
                       role="menuitem"
@@ -309,20 +314,25 @@ const Navbar = ({
             <div>
               {locale === "ar" ? (
                 <button
-                  className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-white/10 px-3 py-2 rounded-2xl cursor-pointer border-none outline-none"
+                  className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-primary/10 px-3 py-2 rounded-xl cursor-pointer border-none outline-none"
                   onClick={() => changeLanguage("en")}
                 >
                   EN
                 </button>
               ) : (
                 <button
-                  className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-white/10 px-3 py-2 rounded-2xl cursor-pointer border-none outline-none"
+                  className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-primary/10 px-3 py-2 rounded-xl cursor-pointer border-none outline-none"
                   onClick={() => changeLanguage("ar")}
                 >
                   AR
                 </button>
               )}
             </div>
+            <Link href="#contact" className="mx-3 mt-1 mb-2">
+              <span className="inline-flex justify-center w-full bg-primary text-white text-sm font-semibold px-4 py-2 rounded-xl shadow-md shadow-primary/30">
+                {t("cta")}
+              </span>
+            </Link>
           </div>
         </HamburgerButton>
       </motion.div>
