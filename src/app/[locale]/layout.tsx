@@ -7,7 +7,7 @@ import { NextIntlClientProvider } from "next-intl";
 export const metadata: Metadata = {
   title: "Omar's Portfolio",
   description:
-    "A modern front-end developer portfolio showcasing projects, skills, and experience.",
+    "A modern front-end developer portfolio showcasing projects and skills.",
 };
 
 export default async function RootLayout({

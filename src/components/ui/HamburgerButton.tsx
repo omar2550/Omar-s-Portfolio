@@ -40,7 +40,7 @@ export default function HamburgerButton({
   }, [exceptionRefs, setThemeMenuMobile]);
 
   return (
-    <div className="sm:hidden relative">
+    <div className="md:hidden relative">
       <button
         ref={openRef}
         onClick={() => {

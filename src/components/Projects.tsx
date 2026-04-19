@@ -11,9 +11,9 @@ const Projects = () => {
   const t = useTranslations("projects");
 
   return (
-    <section className="padding max-w-7xl mx-auto relative z-0">
+    <section className="max-w-7xl mx-auto relative z-0">
       <Header text={t("heading")} />
-      <motion.div variants={fadeIn("", "tween", 0.1, 1.5)} className="mt-10">
+      <motion.div variants={fadeIn("", "tween", 0.1, 1.5)}>
         <HoverEffect items={projects} />
       </motion.div>
     </section>

@@ -3,7 +3,7 @@ import {
   About,
   Skills,
   Projects,
-  Experience,
+  // Experience,
   Features,
   Contact,
   StarsCanvas,
@@ -19,12 +19,12 @@ export default function Home() {
       <About />
       <Skills />
       <Projects />
-      <Experience />
+      {/* <Experience /> */}
       <Features />
-      <div className="relative z-0">
-        <Contact />
-        <StarsCanvas />
-      </div>
+      {/* <div className="relative z-0"> */}
+      <Contact />
+      <StarsCanvas />
+      {/* </div> */}
     </main>
   );
 }

@@ -42,9 +42,7 @@ export const HoverEffect = ({
       )}
     >
       {items.map((item, idx) => (
-        <a
-          href={item?.link}
-          target="_blank"
+        <div
           key={item?.link}
           className="relative group block p-2 h-full w-full"
           onMouseEnter={() => setHoveredIndex(idx)}
@@ -70,29 +68,30 @@ export const HoverEffect = ({
           <Card>
             <div className="flex justify-between flex-col w-full h-full">
               <div>
-                <CardImage src={item.image} alt={item.title} />
-                <CardTitle>{t(`project${idx + 1}.title`)}</CardTitle>
+                <a href={item?.liveLink}
+                  target="_blank"
+                >
+                  <CardImage src={item.image} alt={item.title} />
+                  <CardTitle>{t(`project${idx + 1}.title`)}</CardTitle>
+                </a>
                 <CardDescription>
                   {t(`project${idx + 1}.description`)}
                 </CardDescription>
               </div>
               <div className="flex justify-between flex-wrap sm:flex-nowrap gap-y-3 items-center my-3">
                 <Cardtechs techs={item.tech} />
-                <button
+                <a
+                  href={item.link}
+                  target="_blank"
                   className="flex items-center gap-1.5 text-sm text-text-secondary bg-transparent border-none outline-none"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    window.open(item.liveLink, "_blank", "noopener,noreferrer");
-                  }}
                 >
                   <p className="line-clamp-1">{t("liveServer")}</p>
                   <HiExternalLink />
-                </button>
+                </a>
               </div>
             </div>
           </Card>
-        </a>
+        </div>
       ))}
     </div>
   );

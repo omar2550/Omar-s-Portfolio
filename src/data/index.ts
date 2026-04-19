@@ -32,12 +32,12 @@ export const technologies: Technology[] = [
   { name: "JavaScript", icon: javascript },
   { name: "TypeScript", icon: typescript },
   { name: "React.js", icon: reactjs },
-  { name: "Redux Toolkit", icon: redux },
+  // { name: "Redux Toolkit", icon: redux },
   { name: "Tailwind CSS", icon: tailwind },
   { name: "git", icon: git },
   { name: "Bootstrap", icon: bootstrap },
   { name: "framer-motion", icon: framermotion },
-  { name: "Sass", icon: sass },
+  // { name: "Sass", icon: sass },
   { name: "three.js", icon: threejs },
   { name: "Next.js", icon: nextjs },
 ];
@@ -164,7 +164,6 @@ export const navItems = [
   { name: "About", link: "#about" },
   { name: "Skills", link: "#skills" },
   { name: "Projects", link: "#projects" },
-  { name: "Journey", link: "#journey" },
+  // { name: "Journey", link: "#journey" },
   { name: "Features", link: "#features" },
-  { name: "Contact", link: "#contact" },
 ];

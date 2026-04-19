@@ -20,7 +20,7 @@ export const fadeIn = (
   direction: "left" | "right" | "up" | "down" | "",
   type: "spring" | "tween" | "inertia" = "spring",
   delay: number = 0,
-  duration: number = 0.5
+  duration: number = 0.5,
 ): Variants => ({
   hidden: {
     x: direction === "left" ? 100 : direction === "right" ? -100 : 0,
@@ -42,7 +42,7 @@ export const fadeIn = (
 
 export const zoomIn = (
   delay: number = 0,
-  duration: number = 0.5
+  duration: number = 0.5,
 ): Variants => ({
   hidden: {
     scale: 0,
@@ -64,7 +64,7 @@ export const slideIn = (
   direction: "left" | "right" | "up" | "down" | "",
   type: "spring" | "tween" | "inertia" = "spring",
   delay: number = 0,
-  duration: number = 0.5
+  duration: number = 0.5,
 ): Variants => ({
   hidden: {
     x: direction === "left" ? "-100%" : direction === "right" ? "100%" : 0,
@@ -84,7 +84,7 @@ export const slideIn = (
 
 export const staggerContainer = (
   staggerChildren: number = 0.1,
-  delayChildren: number = 0
+  delayChildren: number = 0,
 ): Variants => ({
   hidden: {},
   show: {

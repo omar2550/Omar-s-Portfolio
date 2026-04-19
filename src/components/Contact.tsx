@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { slideIn } from "@/utils/motion";
@@ -9,7 +9,6 @@ import EarthCanvas from "./canvas/Earth";
 import { useTranslations } from "next-intl";
 
 const Contact = () => {
-  const formRef = useRef<HTMLFormElement>(null);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -72,10 +71,9 @@ const Contact = () => {
       <div className="flex items-center flex-col-reverse lg:flex-row gap-10 lg:gap-14">
         <motion.div
           variants={slideIn("left", "tween", 0.2, 1)}
-          className="flex-[0.75] bg-gradient p-6 sm:p-8 rounded-3xl border border-primary/15 shadow-xl"
+          className="md:flex-[0.85] bg-gradient p-6 sm:p-8 rounded-3xl border border-primary/15 shadow-xl"
         >
           <form
-            ref={formRef}
             onSubmit={handleSubmit}
             className="flex flex-col mt-8 gap-6"
           >
@@ -131,7 +129,7 @@ const Contact = () => {
         </motion.div>
         <motion.div
           variants={slideIn("right", "tween", 0.2, 1)}
-          className="flex-1 h-[350px] md:h-[550px] xl:h-out"
+          className="md:flex-1 h-[350px] md:h-[550px] xl:h-auto"
         >
           <EarthCanvas />
         </motion.div>

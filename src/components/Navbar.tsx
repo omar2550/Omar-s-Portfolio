@@ -135,9 +135,8 @@ const Navbar = ({
           duration: 0.3,
         }}
         className={cn(
-          `${
-            visible ? "fixed top-0 inset-x-0" : "absolute top-0 left-0"
-          } flex items-center justify-between w-full bg-gradient/95 backdrop-blur-xl border-b border-primary/15 shadow-[0px_8px_30px_-14px_rgba(14,116,144,0.45)] z-[5000] paddingX py-3`,
+          `${visible ? "fixed top-0 inset-x-0" : "absolute top-0 left-0"
+          } flex items-center justify-between w-full bg-gradient/95 backdrop-blur-xl border-b border-primary/15 shadow-[0px_8px_30px_-14px_rgba(14,116,144,0.45)] z-[5000] px-3 py-4`,
           className
         )}
       >
@@ -149,21 +148,21 @@ const Navbar = ({
 
         {/* Navbar For Large Devices */}
 
-        <div className="hidden sm:flex items-center justify-center gap-1 md:gap-2" dir="ltr">
+        <div className="hidden md:flex items-center justify-center gap-1" dir="ltr">
           {navItems.map((navItem, idx) => (
-            <a
+            <Link
               key={`link=${idx}`}
               href={navItem.link}
               className={cn(
-                "relative text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-primary/10 px-4 py-2 rounded-xl"
+                "relative text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-primary/10 px-2 py-1.5 rounded-xl text-sm"
               )}
             >
-              <span className="text-sm">{t(navItem.name)}</span>
-            </a>
+              {t(navItem.name)}
+            </Link>
           ))}
           <div className="text-sm relative" ref={themeRef}>
             <button
-              className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-primary/10 px-4 py-2 rounded-xl cursor-pointer border-none outline-none"
+              className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-primary/10 text-sm px-2 py-1.5 rounded-xl cursor-pointer border-none outline-none"
               onClick={() => setThemeMenuDesktop(!themeMenuDesktop)}
               aria-haspopup="true"
               aria-expanded={themeMenuDesktop}
@@ -211,22 +210,22 @@ const Navbar = ({
           <div>
             {locale === "ar" ? (
               <button
-                className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-primary/10 px-3 py-2 rounded-xl cursor-pointer border-none outline-none"
+                className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-primary/10 text-sm px-2 py-1.5 rounded-xl cursor-pointer border-none outline-none"
                 onClick={() => changeLanguage("en")}
               >
                 EN
               </button>
             ) : (
               <button
-                className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-primary/10 px-3 py-2 rounded-xl cursor-pointer border-none outline-none"
+                className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-primary/10 text-sm px-2 py-1.5 rounded-xl cursor-pointer border-none outline-none"
                 onClick={() => changeLanguage("ar")}
               >
                 AR
               </button>
             )}
           </div>
-          <Link href="#contact" className="hidden md:inline-flex">
-            <span className="bg-primary text-white text-sm font-semibold px-4 py-2 rounded-xl shadow-md shadow-primary/30 hover:bg-primary-dark">
+          <Link href="#contact">
+            <span className="bg-primary text-white text-sm font-semibold px-4 py-2 rounded-xl shadow-md shadow-primary/30 hover:bg-primary-dark ml-1">
               {t("cta")}
             </span>
           </Link>
@@ -246,7 +245,7 @@ const Navbar = ({
                 key={`link=${idx}`}
                 href={navItem.link}
                 className={
-                  "relative text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:translate-x-1 p-3 rounded-lg"
+                  "relative text-primary items-center flex space-x-1 transition-all duration-300 hover:text-primary-light hover:translate-x-1 p-3 rounded-lg"
                 }
               >
                 <span className="text-sm">{t(navItem.name)}</span>
