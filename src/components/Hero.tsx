@@ -7,6 +7,7 @@ import { zoomIn } from "@/utils/motion";
 import Link from "next/link";
 import { FaDownload } from "react-icons/fa6";
 import { useTranslations } from "next-intl";
+import ComputersCanvas from "./canvas/Computers";
 
 const Hero = () => {
   const t = useTranslations("hero");
@@ -14,7 +15,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative paddingX min-h-screen flex w-full items-center justify-center bg-bg pt-24 md:pt-20"
+      className="relative paddingX h-screen bg-bg pt-24 md:pt-20"
     >
       <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[70vw] h-[70vw] rounded-full bg-primary/10 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 right-0 w-[40vw] h-[40vw] rounded-full bg-accent/15 blur-3xl" />
@@ -39,25 +40,17 @@ const Hero = () => {
         />
       </div>
 
-      <div className="relative max-w-7xl mx-auto w-full h-full z-20 flex justify-center md:justify-between gap-y-10 items-center flex-col md:flex-row text-center md:text-start">
+      <div className="hidden sm:block relative w-full h-full z-10">
         <motion.div
           variants={zoomIn()}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
-          className="max-w-xl"
+          className="absolute inset-0 z-20 w-fit h-fit"
         >
           <div>
-            <h1 className="block md:hidden text-gradient text-3xl font-black leading-tight">
+            <h1 className="text-gradient text-4xl font-black leading-tight">
               {t("title1")} <br /> {t("title2")}
-            </h1>
-            <h1 className="hidden md:block text-gradient text-3xl md:text-[3rem] font-black leading-tight">
-              {t("subtitle1")} <br />
-              {t("subtitle2")}{" "}
-              <ContainerTextFlip
-                words={[t("word1"), t("word2"), t("word3")]}
-                textClassName="text-primary text-3xl md:text-[3rem]"
-              />
             </h1>
             <p className="text-md md:text-[18px] md:text-xl text-primary mt-4 md:w-md leading-relaxed">
               {t("introHeader")}
@@ -80,9 +73,41 @@ const Hero = () => {
             </a>
           </div>
         </motion.div>
-        <div className="hidden md:block w-full h-[260px] md:h-[360px] lg:h-[420px]">
-          <Webdev />
-        </div>
+        <ComputersCanvas />
+      </div>
+
+      <div className="sm:hidden block relative w-full h-full z-10 content-center">
+        <motion.div
+          variants={zoomIn()}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+        >
+          <div>
+            <h1 className="text-gradient text-3xl font-black leading-tight">
+              {t("title1")} <br /> {t("title2")}
+            </h1>
+            <p className="text-md text-primary mt-4 leading-relaxed">
+              {t("introHeader")}
+              <br />
+              {t("introDesc")}
+            </p>
+          </div>
+          <div className="flex justify-center items-center mt-8 gap-4 flex-col">
+            <Link href="#projects">
+              <button className="py-3 px-6 text-md bg-primary text-white font-bold duration-300 hover:bg-primary-dark hover:-translate-y-0.5 border-none outline-none rounded-xl cursor-pointer shadow-lg shadow-primary/30">
+                {t("getStarted")}
+              </button>
+            </Link>
+            <a
+              href="/cv.pdf"
+              download={true}
+              className="text-md text-primary flex gap-2 items-center py-2 px-4 rounded-xl border border-primary/20 hover:bg-primary/10 transition-colors"
+            >
+              {t("myCV")} <FaDownload />
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

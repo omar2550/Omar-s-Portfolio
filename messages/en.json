@@ -72,14 +72,11 @@
   },
   "contact": {
     "heading": "Get in touch",
-    "name": "Your Name",
-    "nameHolder": "What's your name?",
-    "email": "Your Email",
-    "emailHolder": "What's your email?",
-    "message": "Your Message",
-    "messageHolder": "What do you want to say?",
-    "send": "Send",
-    "sending": "Sending..."
+    "message1": "Ready to take",
+    "message2": "your",
+    "message3": "digital presence to the next level?",
+    "para": "Reach out to me today and let&apos;s discuss how I can help you achieve your goals.",
+    "talk": "Let's get in touch"
   },
   "journey": {
     "heading": "My Journey",

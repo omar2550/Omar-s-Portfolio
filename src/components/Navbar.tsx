@@ -1,12 +1,11 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import {
   motion,
   AnimatePresence,
   useScroll,
   useMotionValueEvent,
 } from "motion/react";
-import { motion as m, AnimatePresence as Animate } from "framer-motion";
 import { cn } from "@/lib/utils";
 import HamburgerButton from "./ui/HamburgerButton";
 import Link from "next/link";
@@ -26,64 +25,8 @@ const Navbar = ({
   const { scrollYProgress } = useScroll();
 
   const [visible, setVisible] = useState(true);
-  const [themeMenuDesktop, setThemeMenuDesktop] = useState(false);
-  const [themeMenuMobile, setThemeMenuMobile] = useState(false);
 
-  const themeRef = useRef<HTMLDivElement>(null);
   const themeHamburRef = useRef<HTMLDivElement>(null);
-
-  const applyTheme = (newTheme: string) => {
-    if (newTheme === "system") {
-      localStorage.removeItem("theme");
-    } else {
-      localStorage.setItem("theme", newTheme);
-    }
-
-    if (newTheme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else if (newTheme === "light") {
-      document.documentElement.classList.remove("dark");
-    } else {
-      const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-      isDark
-        ? document.documentElement.classList.add("dark")
-        : document.documentElement.classList.remove("dark");
-    }
-  };
-
-  // Handle theme menu
-  useEffect(() => {
-    const handleClose = (e: MouseEvent | TouchEvent | PointerEvent) => {
-      if (themeRef.current && !themeRef.current.contains(e.target as Node))
-        setThemeMenuDesktop(false);
-    };
-    document.addEventListener("pointerdown", handleClose);
-    return () => document.removeEventListener("pointerdown", handleClose);
-  }, []);
-
-  // Change the theme
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "system";
-
-    applyTheme(savedTheme);
-
-    // on change the system settings
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const handleChange = (e: MediaQueryListEvent) => {
-      if (localStorage.getItem("theme")) {
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-        e.matches
-          ? document.documentElement.classList.add("dark")
-          : document.documentElement.classList.remove("dark");
-      }
-    };
-
-    mediaQuery.addEventListener("change", handleChange);
-
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, []);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
     // Check if current is not undefined and is a number
@@ -160,53 +103,6 @@ const Navbar = ({
               {t(navItem.name)}
             </Link>
           ))}
-          <div className="text-sm relative" ref={themeRef}>
-            <button
-              className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light hover:bg-primary/10 text-sm px-2 py-1.5 rounded-xl cursor-pointer border-none outline-none"
-              onClick={() => setThemeMenuDesktop(!themeMenuDesktop)}
-              aria-haspopup="true"
-              aria-expanded={themeMenuDesktop}
-            >
-              {t("theme")}
-            </button>
-            <Animate>
-              {themeMenuDesktop && (
-                <m.ul
-                  role="menu"
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                  className="absolute top-11 right-0 min-w-32 bg-gradient border border-primary/20 rounded-xl p-3 space-y-2 shadow-xl text-primary"
-                >
-                  <li
-                    role="menuitem"
-                    tabIndex={0}
-                    className="cursor-pointer hover:text-primary-light duration-300"
-                    onClick={() => applyTheme("light")}
-                  >
-                    {t("light")}
-                  </li>
-                  <li
-                    role="menuitem"
-                    tabIndex={0}
-                    className="cursor-pointer hover:text-primary-light duration-300"
-                    onClick={() => applyTheme("system")}
-                  >
-                    {t("system")}
-                  </li>
-                  <li
-                    role="menuitem"
-                    tabIndex={0}
-                    className="cursor-pointer hover:text-primary-light duration-300"
-                    onClick={() => applyTheme("dark")}
-                  >
-                    {t("dark")}
-                  </li>
-                </m.ul>
-              )}
-            </Animate>
-          </div>
           <div>
             {locale === "ar" ? (
               <button
@@ -235,7 +131,6 @@ const Navbar = ({
 
         <HamburgerButton
           exceptionRefs={[themeHamburRef as React.RefObject<HTMLElement>]}
-          setThemeMenuMobile={setThemeMenuMobile}
         >
           <div
             className={`flex justify-start flex-col bg-gradient border border-primary/20 rounded-xl shadow-xl absolute p-2 top-10 right-0 min-w-44`}
@@ -251,65 +146,6 @@ const Navbar = ({
                 <span className="text-sm">{t(navItem.name)}</span>
               </a>
             ))}
-            <div className="text-sm relative" ref={themeHamburRef}>
-              <button
-                className="text-primary items-center flex space-x-1 duration-300 hover:text-primary-light cursor-pointer hover:translate-x-1 p-3 border-none outline-none rounded-lg"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setThemeMenuMobile(!themeMenuMobile);
-                }}
-                aria-haspopup="true"
-                aria-expanded={themeMenuMobile}
-              >
-                {t("theme")}
-              </button>
-              <Animate>
-                {themeMenuMobile && (
-                  <m.ul
-                    role="menu"
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className={`absolute -translate-x-full bg-gradient border border-primary/20 rounded-xl p-3 space-y-2 shadow-xl text-primary top-0 -left-2`}
-                  >
-                    <li
-                      role="menuitem"
-                      tabIndex={0}
-                      className="cursor-pointer hover:text-primary-light duration-300"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        applyTheme("light");
-                      }}
-                    >
-                      {t("light")}
-                    </li>
-                    <li
-                      role="menuitem"
-                      tabIndex={0}
-                      className="cursor-pointer hover:text-primary-light duration-300"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        applyTheme("system");
-                      }}
-                    >
-                      {t("system")}
-                    </li>
-                    <li
-                      role="menuitem"
-                      tabIndex={0}
-                      className="cursor-pointer hover:text-primary-light duration-300"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        applyTheme("dark");
-                      }}
-                    >
-                      {t("dark")}
-                    </li>
-                  </m.ul>
-                )}
-              </Animate>
-            </div>
             <div>
               {locale === "ar" ? (
                 <button

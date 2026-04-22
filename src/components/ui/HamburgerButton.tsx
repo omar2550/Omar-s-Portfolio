@@ -12,11 +12,9 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function HamburgerButton({
   children,
   exceptionRefs = [],
-  setThemeMenuMobile,
 }: {
   children: ReactNode;
   exceptionRefs?: RefObject<HTMLElement>[];
-  setThemeMenuMobile: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -30,14 +28,13 @@ export default function HamburgerButton({
         !exceptionRefs.some((ref) => ref.current?.contains(e.target as Node))
       ) {
         setOpen(false);
-        setThemeMenuMobile(false);
       }
     };
 
     document.addEventListener("pointerdown", handleToggle);
 
     return () => document.removeEventListener("pointerdown", handleToggle);
-  }, [exceptionRefs, setThemeMenuMobile]);
+  }, [exceptionRefs]);
 
   return (
     <div className="md:hidden relative">

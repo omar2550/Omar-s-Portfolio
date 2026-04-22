@@ -11,7 +11,7 @@ const About = () => {
   const t = useTranslations("aboutMe");
 
   return (
-    <section>
+    <section className="mt-10">
       <Header text={t("heading")} />
       <div className="flex flex-col md:flex-row justify-start sm:justify-between items-center gap-y-10 gap-x-6">
         <motion.p

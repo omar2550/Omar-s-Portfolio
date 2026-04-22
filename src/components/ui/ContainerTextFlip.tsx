@@ -81,11 +81,11 @@ export function ContainerTextFlip({
               key={index}
               initial={{
                 opacity: 0,
-                filter: `blur(10px)`,
+                filter: ``,
               }}
               animate={{
                 opacity: 1,
-                filter: "blur(0px)",
+                filter: "",
               }}
               transition={{
                 delay: index * 0.02,

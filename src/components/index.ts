@@ -10,6 +10,5 @@ import Webdev from "./canvas/Webdev";
 import BallCanvas from "./canvas/Ball";
 import Contact from "./Contact";
 import StarsCanvas from "./canvas/Stars";
-import EarthCanvas from "./canvas/Earth";
 
 export { Hero, About, Skills, Projects, Experience, Features, Contact, Navbar, Webdev, BallCanvas, StarsCanvas, EarthCanvas };

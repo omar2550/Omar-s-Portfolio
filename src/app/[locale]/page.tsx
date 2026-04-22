@@ -21,10 +21,10 @@ export default function Home() {
       <Projects />
       {/* <Experience /> */}
       <Features />
-      {/* <div className="relative z-0"> */}
-      <Contact />
-      <StarsCanvas />
-      {/* </div> */}
+      <div className="relative z-0">
+        <Contact />
+        <StarsCanvas />
+      </div>
     </main>
   );
 }
