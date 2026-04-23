@@ -83,7 +83,10 @@ export const HoverEffect = ({
                 <a
                   href={item.link}
                   target="_blank"
-                  className="absolute inset-0 text-text-secondary z-10"
+                  className="absolute inset-0 text-text-secondary duration-300 transition-all hover:text-white z-10 
+                  w-10 h-10 cursor-pointer flex justify-center items-center
+                  backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 
+                  bg-black-200 rounded-full border border-primary/15"
                 >
                   <FaGithub width={30} height={30} />
                 </a>
