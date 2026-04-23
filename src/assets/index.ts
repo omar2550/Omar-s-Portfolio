@@ -17,7 +17,7 @@ import weather from "./projects/weather.png";
 import vilaAgency from "./projects/vila.png";
 import specialDesign from "./projects/special-design.png";
 import dashboard from "./projects/dashboard.png";
-import storageDashboard from "./projects/storageDashboard.png";
+import luxe from "./projects/luxe.png";
 
 export {
   css,
@@ -38,5 +38,5 @@ export {
   specialDesign,
   dashboard,
   omarPortfolio,
-  storageDashboard,
+  luxe,
 };

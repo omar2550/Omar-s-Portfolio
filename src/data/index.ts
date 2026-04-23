@@ -5,12 +5,10 @@ import {
   html,
   javascript,
   reactjs,
-  redux,
   tailwind,
   typescript,
   bootstrap,
   framermotion,
-  sass,
   threejs,
   nextjs,
   weather,
@@ -18,7 +16,7 @@ import {
   specialDesign,
   dashboard,
   omarPortfolio,
-  storageDashboard,
+  luxe,
 } from "@/assets";
 
 export interface Technology {
@@ -32,12 +30,10 @@ export const technologies: Technology[] = [
   { name: "JavaScript", icon: javascript },
   { name: "TypeScript", icon: typescript },
   { name: "React.js", icon: reactjs },
-  // { name: "Redux Toolkit", icon: redux },
   { name: "Tailwind CSS", icon: tailwind },
   { name: "git", icon: git },
   { name: "Bootstrap", icon: bootstrap },
   { name: "framer-motion", icon: framermotion },
-  // { name: "Sass", icon: sass },
   { name: "three.js", icon: threejs },
   { name: "Next.js", icon: nextjs },
 ];
@@ -66,6 +62,7 @@ import {
   SiShadcnui,
   SiReactrouter,
   SiSupabase,
+  SiReact,
 } from "react-icons/si";
 import { MdDevices } from "react-icons/md";
 import { VscCode } from "react-icons/vsc";
@@ -88,16 +85,13 @@ export const projects = [
     ],
   },
   {
-    title: "Storage Dashboard",
-    description: `In this project, I built a fully responsive real-time dashboard using BaaS for authentication. Products
-are visible only to the authenticated user, who can easily manage their own products and track sales.
-The dashboard features modern, user-friendly, and responsive design with clean charts that display
-sales data, including yearly insights. I leveraged libraries such as React Router, TankStack Query(React Query), and
-shadcn to deliver a smooth, fast, and scalable user experience.`,
-    link: "https://github.com/omar2550/storage-dashboard",
-    liveLink: "https://storage-dashboard-murex.vercel.app/",
-    image: storageDashboard,
-    tech: [SiReactrouter, SiReactquery, SiSupabase, SiShadcnui],
+    title: "LUXE • E-commerce",
+    description:
+      "A high-performance luxury e-commerce platform focused on seamless user experience. Developed with TanStack Query for efficient state management and Framer Motion for sophisticated UI transitions, ensuring a premium feel and optimized data handling across all devices.",
+    link: "https://github.com/omar2550/luxe",
+    liveLink: "https://luxe-2550.vercel.app",
+    image: luxe,
+    tech: [SiReact, BiLogoTypescript, SiReactquery, TbBrandFramerMotion],
   },
   {
     title: "Weather",
@@ -164,6 +158,5 @@ export const navItems = [
   { name: "About", link: "#about" },
   { name: "Skills", link: "#skills" },
   { name: "Projects", link: "#projects" },
-  // { name: "Journey", link: "#journey" },
   { name: "Features", link: "#features" },
 ];
