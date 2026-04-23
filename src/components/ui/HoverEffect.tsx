@@ -83,9 +83,9 @@ export const HoverEffect = ({
                 <a
                   href={item.link}
                   target="_blank"
-                  className="absolute -inset-1 text-text-secondary"
+                  className="absolute inset-0 text-text-secondary z-10"
                 >
-                  <FaGithub width={20} height={20} />
+                  <FaGithub width={30} height={30} />
                 </a>
               </div>
             </div>
