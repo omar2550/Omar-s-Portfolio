@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* @theme {
+@theme {
   --color-bg: #f7f9ff;
   --color-gradient: radial-gradient(circle at top, #eef4ff, #f8fbff 45%, #eef2ff 100%);
 
@@ -13,7 +13,7 @@
   --color-text: #475569;
   --color-text-secondary: #0f172a;
   --color-heading-gradient: linear-gradient(90deg, #2563eb, #06b6d4 45%, #6366f1 100%);
-} */
+}
 
 @custom-variant dark (&:where(.dark, .dark *));
 
