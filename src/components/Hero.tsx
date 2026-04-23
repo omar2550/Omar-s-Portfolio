@@ -1,7 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { ContainerTextFlip } from "./ui/ContainerTextFlip";
-import Webdev from "./canvas/Webdev";
 import { motion } from "framer-motion";
 import { zoomIn } from "@/utils/motion";
 import Link from "next/link";
