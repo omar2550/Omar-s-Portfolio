@@ -94,7 +94,7 @@ const Hero = () => {
             </p>
           </div>
           <div className="flex justify-center items-center mt-8 gap-4 flex-col">
-            <Link href="#projects">
+            <Link href="#about">
               <button className="py-3 px-6 text-md bg-primary text-white font-bold duration-300 hover:bg-primary-dark hover:-translate-y-0.5 border-none outline-none rounded-xl cursor-pointer shadow-lg shadow-primary/30">
                 {t("getStarted")}
               </button>

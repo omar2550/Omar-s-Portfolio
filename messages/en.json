@@ -15,11 +15,6 @@
   "hero": {
     "title1": "Turning Your Ideas",
     "title2": "Into Reality",
-    "subtitle1": "You Dream,",
-    "subtitle2": "I",
-    "word1": "Plan",
-    "word2": "Design",
-    "word3": "Build",
     "introHeader": "Hi, I’m Omar.",
     "introDesc": "A Front-End Developer passionate about crafting beautiful, responsive, and user-friendly interfaces.",
     "getStarted": "Get Started",
@@ -27,7 +22,7 @@
   },
   "aboutMe": {
     "heading": "About Me",
-    "intro": "Hi, I’m Omar Hassein, a second-year Computer Science student at Ain Shams University. I’m a front-end developer passionate about building interactive and visually appealing web applications. I enjoy learning new technologies and continuously improving my skills in React, Next.js, TypeScript, and Tailwind CSS. Recently, I’ve also explored libraries like Three.js and Framer Motion to create more dynamic user experiences. My goal is to design user-friendly interfaces and contribute to impactful projects as I grow in my development journey."
+    "intro": "Hi, I’m Omar Hussein, a Computer Science student at Ain Shams University and a Frontend Developer focused on building high-performance, interactive web applications. I specialize in React and TypeScript, with a keen interest in creating immersive user experiences using Three.js and Framer Motion. I am dedicated to writing clean, scalable code and turning complex designs into seamless digital solutions as I advance my professional journey."
   },
   "skills": {
     "heading": "My Skills"
@@ -75,39 +70,7 @@
     "message1": "Ready to take",
     "message2": "your",
     "message3": "digital presence to the next level?",
-    "para": "Reach out to me today and let&apos;s discuss how I can help you achieve your goals.",
+    "para": "Reach out to me today and let's discuss how I can help you achieve your goals.",
     "talk": "Let's get in touch"
-  },
-  "journey": {
-    "heading": "My Journey",
-    "subheading": "I focus on turning ideas into polished digital products through a clear process: discovery, building, and continuous optimization.",
-    "metrics": [
-      {
-        "value": "2+",
-        "label": "Years learning and building real projects"
-      },
-      {
-        "value": "6+",
-        "label": "Completed portfolio projects"
-      },
-      {
-        "value": "100%",
-        "label": "Responsive-first interfaces"
-      }
-    ],
-    "phases": [
-      {
-        "title": "Discover & Plan",
-        "description": "I translate business goals into a clear UI structure, user flows, and technical steps before writing code."
-      },
-      {
-        "title": "Build & Animate",
-        "description": "I build reusable components with React/Next.js and add thoughtful motion for a smooth, modern experience."
-      },
-      {
-        "title": "Optimize & Deliver",
-        "description": "I polish performance, accessibility, and responsive behavior to ship a product that feels fast and professional."
-      }
-    ]
   }
 }

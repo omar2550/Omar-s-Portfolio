@@ -2,13 +2,21 @@ import Hero from "./Hero";
 import About from "./About";
 import Skills from "./Skills";
 import Projects from "./Projects";
-import Experience from "./Experience";
 import Features from "./Features";
 import Navbar from "./Navbar";
 
-import Webdev from "./canvas/Webdev";
 import BallCanvas from "./canvas/Ball";
 import Contact from "./Contact";
 import StarsCanvas from "./canvas/Stars";
 
-export { Hero, About, Skills, Projects, Experience, Features, Contact, Navbar, Webdev, BallCanvas, StarsCanvas, EarthCanvas };
+export {
+  Hero,
+  About,
+  Skills,
+  Projects,
+  Features,
+  Contact,
+  Navbar,
+  BallCanvas,
+  StarsCanvas,
+};

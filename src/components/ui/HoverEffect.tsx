@@ -83,10 +83,9 @@ export const HoverEffect = ({
                 <a
                   href={item.link}
                   target="_blank"
-                  className="flex items-center gap-1.5 text-sm text-text-secondary bg-transparent border-none outline-none"
+                  className="absolute -inset-1 text-text-secondary"
                 >
-                  <p className="line-clamp-1">{t("liveServer")}</p>
-                  <HiExternalLink />
+                  <FaGithub width={20} height={20} />
                 </a>
               </div>
             </div>
@@ -162,6 +161,7 @@ export const CardDescription = ({
 };
 
 import { useLocale } from "next-intl";
+import { FaGithub } from "react-icons/fa6";
 export const Cardtechs = ({
   techs,
 }: {

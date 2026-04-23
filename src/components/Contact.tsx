@@ -7,7 +7,7 @@ import { fadeIn } from "@/utils/motion";
 import SectionWrapper from "@/hoc/SectionWrapper";
 import Header from "./ui/Header";
 import MagicButton from "./ui/MagicButton";
-import { FaLocationArrow } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaLocationArrow, FaWhatsapp } from "react-icons/fa6";
 import grid from "@/assets/footer-grid.svg"
 
 // import emailjs from "@emailjs/browser";
@@ -47,6 +47,35 @@ const Contact = () => {
             />
           </a>
         </motion.div>
+      </div>
+      <div className="flex mt-10 flex-col gap-2 md:flex-row md:gap-0 justify-between items-center">
+        <p className="text-sm md:text-base font-light md:font-normal">
+          Copyright © {new Date().getFullYear()} Omar
+        </p>
+
+        <div className="flex items-center gap-6 md:gap-3">
+          <a
+            href="https://github.com/omar2550"
+            target="_blank"
+            className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300"
+          >
+            <FaGithub width={20} height={20} />
+          </a>
+          <a
+            href="https://wa.me/201152039882"
+            target="_blank"
+            className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300"
+          >
+            <FaWhatsapp width={20} height={20} />
+          </a>
+          <a
+            href="www.linkedin.com/in/omar-hassein-b29671351"
+            target="_blank"
+            className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300"
+          >
+            <FaLinkedin width={20} height={20} />
+          </a>
+        </div>
       </div>
     </section>
   );

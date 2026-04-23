@@ -26,7 +26,7 @@ export default async function RootLayout({
   const messages = (await import(`../../../messages/${locale}.json`)).default;
 
   return (
-    <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
+    <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"} className="dark">
       <body className={`antialiased`}>
         <NextIntlClientProvider messages={messages} locale={locale}>
           {children}
