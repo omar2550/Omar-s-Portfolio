@@ -35,8 +35,8 @@
       "description": "An interactive 3D portfolio website with smooth animations and optimized performance. Built using Three.js and Framer Motion, which helped me strengthen my skills in React, Next.js, TypeScript, and Tailwind CSS."
     },
     "project2": {
-      "title": "Storage Dashboard",
-      "description": "In this project, I built a fully responsive real-time dashboard using BaaS for authentication. Products are visible only to the authenticated user, who can easily manage their own products and track sales. The dashboard features modern, user-friendly, and responsive design with clean charts that display sales data, including yearly insights."
+      "title": "LUXE • E-commerce",
+      "description": "A high-performance luxury e-commerce platform focused on seamless user experience. Developed with TanStack Query for efficient state management and Framer Motion for sophisticated UI transitions, ensuring a premium feel and optimized data handling across all devices."
     },
     "project3": {
       "title": "Weather App",
